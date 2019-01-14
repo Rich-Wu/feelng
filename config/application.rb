@@ -34,5 +34,5 @@ def query_foursquare(query, location)
     })
   curl.perform
   data = JSON.parse(curl.body_str)
-  @response = data['response']
+  return data['response']
 end
