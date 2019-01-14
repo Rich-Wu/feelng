@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emoji: MyString
+  color: MyString
+  song: MyString
+  journal_id: 1
+  event: MyString
+  content: MyString
+  poem: MyString
+
+two:
+  emoji: MyString
+  color: MyString
+  song: MyString
+  journal_id: 1
+  event: MyString
+  content: MyString
+  poem: MyString
