@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    render 'home'
+    @mood = Mood.new
   end
 
   def results
