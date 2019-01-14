@@ -7,7 +7,7 @@
   display: inline-block;
   cursor: pointer;
   float: right;
-  // transition: .4s;
+  z-index: 1;
 }
 
 .bar1, .bar2, .bar3 {
@@ -20,7 +20,7 @@
 
 .switch .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  
+
 }
 
 .switch .bar2 {
@@ -29,5 +29,26 @@
 
 .switch .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  
+
+}
+
+// MENU OVERLAY
+.overlay-container {
+  display: grid;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: whitesmoke;
+  grid-template: 20px 20px / auto;
+  transition: .5s;
+}
+
+.menu-content {
+ position: relative;
+ text-align: center;
+ top: 10em;
 }
