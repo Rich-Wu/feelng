@@ -22,25 +22,17 @@ module Groupproject
   end
 end
 
-def query_foursquare
-  uri = URI.parse("https://api.foursquare.com/v2/venues/explore")
-  request = Net::HTTP::Get.new(uri)
-  request.set_form_data(
-    "client_id" => ENV['FOURSQ_ID'],
-    "client_secret" => ENV['FOURSQ_KEY'],
-    "ll" => "40.7243,-74.0018",
-    "query" => "coffee",
-    "v" => "20180323",
-  )
-
-  req_options = {
-    use_ssl: uri.scheme == "https",
-  }
-
-  response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-    http.request(request)
-  end
-
-  Curl::Easy.http_get()
-
+def query_foursquare(query, location)
+  curl = Curl::Easy.new
+  curl.url = Curl::urlalize("https://api.foursquare.com/v2/venues/explore", params = {
+    "client_id": ENV['FOURSQ_ID'],
+    "client_secret": ENV['FOURSQ_KEY'],
+    "ll": "40.7243,-74.0018",
+    "query": query,
+    "v": "20180323",
+    "limit": 1
+    })
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  @response = data['response']
 end
