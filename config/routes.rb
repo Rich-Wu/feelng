@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root 'test#home'
+  root 'pages#home'
+  get '/mood', to: 'pages#results', as: 'mood'
+  post '/mood', to: 'pages#results'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
