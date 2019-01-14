@@ -2,7 +2,7 @@
 
 <h1>What's The Mood?</h1>
 <%= form_tag("/mood", method: "post", class: 'container') do %>
-  <% Dir.foreach('/Users/oliviaellis/Desktop/SEI/Projects/Project7/groupproject/app/assets/images/emojis') do |item| %>
+  <% Dir.foreach('./app/assets/images/emojis') do |item| %>
     <% next if item[0] == '.' %>
     <div class="emoji">
       <%= image_tag("emojis/#{item}") %>
