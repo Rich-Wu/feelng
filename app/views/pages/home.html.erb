@@ -1,14 +1,13 @@
 <!-- <p>Create a select form with the emojis as possible inputs that directs to POST '/mood'</p> -->
 
 <h1>What's The Mood?</h1>
-<div class="container">
-  <% form_for (@mood) do |f| %>
-    <% Dir.foreach('/Users/oliviaellis/Desktop/SEI/Projects/Project7/groupproject/app/assets/images/emojis') do |item| %>
-      <% next if item[0] == '.' %>
-      <div class="emoji">
-        <%= image_tag("emojis/"+item) %>
-        <%= f.option 
-      </div>
-    <% end %>
+<%= form_tag("/mood", method: "post", class: 'container') do %>
+  <% Dir.foreach('/Users/oliviaellis/Desktop/SEI/Projects/Project7/groupproject/app/assets/images/emojis') do |item| %>
+    <% next if item[0] == '.' %>
+    <div class="emoji">
+      <%= image_tag("emojis/#{item}") %>
+      <%= radio_button_tag(:mood, item) %>
+    </div>
   <% end %>
-</div>
+  <%= submit_tag('Submit') %>
+<% end %>
