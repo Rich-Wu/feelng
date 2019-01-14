@@ -7,6 +7,7 @@
   display: inline-block;
   cursor: pointer;
   float: right;
+  // transition: .4s;
 }
 
 .bar1, .bar2, .bar3 {
@@ -14,4 +15,19 @@
   height: 5px;
   margin: 6px 0;
   background-color: black;
+  transition: .4s;
+}
+
+.switch .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  
+}
+
+.switch .bar2 {
+  opacity: 0;
+}
+
+.switch .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  
 }
