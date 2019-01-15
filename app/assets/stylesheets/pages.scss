@@ -19,15 +19,13 @@
 }
 
 // MENU DROPDOWN
-// .menu-container .menu-dropdown {
-//   background-color: lightgrey;
-//   display: inline-block;
-// }
-
 .menu-dropdown {
   background-color: lightgrey;
   position: absolute;
+  right: 0;
+  top: 32.5px;
   display: none;
+  z-index: 1;
   min-width: 100px;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
@@ -38,8 +36,14 @@
   display: block;
   padding: .2em .2em;
   text-decoration: none;
+    &:hover {
+    background-color: whitesmoke;   
+  }
 }
 
+.drop {
+  display: block;
+}
 
 // MENU OVERLAY
 .overlay-container {
