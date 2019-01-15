@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :refresh_token
   def home
     render 'home'
   end
@@ -8,13 +9,32 @@ class PagesController < ApplicationController
     p @mood
     # color API
     # music API
-    # Setting up the query params to gain the user's access token
+    # AUTHORIZE SPOTIFY HERE
     
     # poetry API
     # event API
     render 'results'
   end
 
+
+  private
+    def refresh_token
+      if helpers.current_spotify_user.access_token_expired?
+          body = {
+              grant_type: "refresh_token",
+              refresh_token: current_user.refresh_token,
+              client_id: ENV["SPOTIFY_ID"],
+              client_secret: ENV["SPOTIFY_SECRET"]
+          }
+
+          auth_response = HTTParty.post("https://accounts.spotify.com/api/token", :body=>body)
+          auth_params = JSON.parse(auth_response)
+          current_user.update(access_token: auth_params["access_token"])
+      
+      else
+          puts "Token is good"
+      end
+    end
 
 end
 

@@ -1,6 +1,7 @@
 <!-- <p>Create a select form with the emojis as possible inputs that directs to POST '/mood'</p> -->
 
 <h1>What's The Mood?</h1>
+<h3>Welcome <%=current_spotify_user.username%></h3>
 <%= form_tag("/mood", method: "post", class: 'container') do %>
   <% Dir.foreach('./app/assets/images/emojis') do |item| %>
     <% next if item[0] == '.' %>
