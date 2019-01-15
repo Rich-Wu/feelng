@@ -5,22 +5,37 @@
   <div class="bar3"></div>
 
   <div id="menu-content" class="menu-dropdown">
-    <div onclick="openOverlay()">About</div>
-    <div onclick="openOverlay()">Login</div>
-    <div onclick="openOverlay()">Signup</div>
+    <div onclick="openOverlay1()">About</div>
+    <div onclick="openOverlay2()">Login</div>
+    <div onclick="openOverlay3()">Signup</div>
   </div>
 </div>
 
-<div id="overlay" class="overlay-container">
-  <div class="closebtn" onclick="closeOverlay()">&times;</div>
-  <div class="overlay-content">
-    <div class="signup">Signup</div>
-    <div class="login">Login</div>
+<!-- MENU OVERLAYS -->
+<div id="overlay1" class="overlay-container">
+  <div class="closebtn" onclick="closeOverlay1()">&times;</div>
+  <div class="overlay-about">
+    <p>'Feelin' is your go-to content generator app based...you guessed it! Your current mood!<br>
+        Select an emoji and watch the magic to happen!
+    </p>
+  </div>
+</div>
+
+<div id="overlay2" class="overlay-container">
+  <div class="closebtn" onclick="closeOverlay2()">&times;</div>
+  <div class="overlay-login">
+    <h2>Login Form</h2>
+  </div>
+</div>
+
+<div id="overlay3" class="overlay-container">
+  <div class="closebtn" onclick="closeOverlay3()">&times;</div>
+  <div class="overlay-signup">
+    <h2>Signup Form</h2>
   </div>
 </div>
 
 <!-- EMOJI GRID -->
-
 <h1>What's The Mood?</h1>
 <%= form_tag("/mood", method: "post", class: 'container') do %>
   <%= hidden_field_tag 'coordinates' %>

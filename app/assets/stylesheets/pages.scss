@@ -16,12 +16,12 @@
   height: 5px;
   margin: 6px 0;
   background-color: black;
-  transition: .4s;
+  transition: .5s;
 }
 
 // MENU DROPDOWN
 .menu-dropdown {
-  background-color: lightgrey;
+  background-color: #ffcc33;
   position: absolute;
   right: 0;
   top: 32.5px;
@@ -33,9 +33,9 @@
   0 11px 6px -7px rgba(43,43,43,0.1);
 }
 
-.menu-dropdown a {
+.menu-dropdown div {
   display: block;
-  padding: .2em .2em;
+  padding: .7em .2em;
   text-decoration: none;
     &:hover {
     background-color: whitesmoke;
@@ -55,12 +55,12 @@
   left: 0;
   position: fixed;
   background-color: #ffcc33;
-  opacity: .8;
+  opacity: .9;
   overflow-y: hidden;
   transition: .5s;
 }
 
-.overlay-content {
+.overlay-about, .overlay-login, .overlay-signup {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
