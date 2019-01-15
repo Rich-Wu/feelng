@@ -3,6 +3,7 @@ var menu_container = document.getElementsByClassName('menu-container')[0];
 var about_overlay = document.getElementById('overlay1');
 var login_overlay = document.getElementById('overlay2');
 var signup_overlay = document.getElementById('overlay3');
+var bar_1 = document.getElementsByClassName('bar1')[0];
 
 // DISPLAYS MENU CONTENT
 function openMenu() {
@@ -48,7 +49,9 @@ function closeOverlay3() {
 }
 
 // CLOSES MENU CONTENT
-// window.onclick = function(event) {
-//   if (event.target == menu_content)
-//     menu_content.style.display = "none";
-// }
+window.onclick = function(event, event) {
+  if (event.target == menu_container) {
+  } else if (menu_content.classList.contains('drop')) {
+    menu_content.classList.remove('drop');
+  }
+}
