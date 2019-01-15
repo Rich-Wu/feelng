@@ -6,7 +6,7 @@ function openMenu() {
 }
 
 // CLOSES MENU CONTENT
-window.onclick = function(event) {
-  if (!event.target.matches('.menu-container'))
-    menu_content.classList.remove('drop');
-}
+// window.onclick = function(event) {
+//   if (!event.target.matches('.menu-container'))
+//     menu_content.classList.remove('drop');
+// }

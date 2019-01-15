@@ -37,7 +37,7 @@
   padding: .2em .2em;
   text-decoration: none;
     &:hover {
-    background-color: whitesmoke;   
+    background-color: whitesmoke;
   }
 }
 
@@ -82,3 +82,28 @@
 //
 //   }
 // }
+body {
+  font-family: 'Helvetica', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  img {
+    height: 60px;
+  }
+}
+
+
+@media only screen and (min-width: 376px) {
+  .container {
+    grid-template-columns: repeat(8, 1fr);
+    img {
+      height: 120px;
+    }
+  }
+}

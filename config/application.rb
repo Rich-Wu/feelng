@@ -1,6 +1,10 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'net/http'
+require 'uri'
+require 'curb'
+require 'json'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,4 +20,19 @@ module Groupproject
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+end
+
+def query_foursquare(query, location)
+  curl = Curl::Easy.new
+  curl.url = Curl::urlalize("https://api.foursquare.com/v2/venues/explore", params = {
+    "client_id": ENV['FOURSQ_ID'],
+    "client_secret": ENV['FOURSQ_KEY'],
+    "ll": location,
+    "query": query,
+    "v": "20180323",
+    "limit": 1
+    })
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data['response']
 end
