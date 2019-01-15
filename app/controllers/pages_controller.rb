@@ -15,14 +15,6 @@ class PagesController < ApplicationController
     render 'results'
   end
 
-  def playback
-    query_params {
-      client_id: ENV['SPOTIFY_ID'],
-      response_type: 'code',
-      redirect_uri: "localhost:3000/",
-      scope: "user-library-read",
-      show_dialog: true
-    }
-  end
+
 end
 
