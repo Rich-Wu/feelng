@@ -2,6 +2,7 @@
 
 <h1>What's The Mood?</h1>
 <%= form_tag("/mood", method: "post", class: 'container') do %>
+  <%= hidden_field_tag 'coordinates' %>
   <% Dir.foreach('./app/assets/images/emojis') do |item| %>
     <% next if item[0] == '.' %>
     <div class="emoji">
@@ -11,3 +12,5 @@
   <% end %>
   <%= submit_tag('Submit') %>
 <% end %>
+
+<%= javascript_include_tag 'emoji-grid' %>

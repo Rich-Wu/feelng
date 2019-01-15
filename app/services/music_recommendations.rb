@@ -47,13 +47,26 @@ class MusicRecommendations
     end
 
     def get_category_playlist(category_id) 
+        # Limit country to US and limit of 50 
         query = {
             "country" => "US",
             "limit" => 50
         }
-        response = HTTParty.get("https://api.spotify.com/v1/browse/categories/#{category_id}/playlists")
+        # Make sure to authorize the request with the access token
+        headers = {
+            "Authorization" => "Bearer #{@access_token}"
+        }
+
+        playlists = []
+        response = HTTParty.get("https://api.spotify.com/v1/browse/categories/#{category_id}/playlists", :query => query, :headers => headers)
         body = JSON.parse(response.body)
-        playlists = body["playlists"]
-        
+        items = body["playlists"]["items"]
+        items.each do |item|  
+            # Saving IDs to save space
+            playlists << item["id"]
+        end
+
+        # Return a random playlist id from the list of playlists
+        return playlists.sample
     end
 end
