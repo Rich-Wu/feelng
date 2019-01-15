@@ -32,6 +32,14 @@
   <div class="closebtn" onclick="closeOverlay3()">&times;</div>
   <div class="overlay-signup">
     <h2>Signup Form</h2>
+    <%= form_for @user, remote:true do |f| %>
+      <%= f.email_field :email, placeholder: "Email (e.g. example@hotmail.com)" %>
+      <%= f.text_field :username, placeholder: "Username" %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <%= f.password_field :password, placeholder: "Password (min. 8 characters)" %>
+      <%= f.submit "Create" %>
+    <% end %>
   </div>
 </div>
 
