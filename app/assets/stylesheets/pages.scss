@@ -8,6 +8,7 @@
   display: inline-block;
   cursor: pointer;
   float: right;
+
 }
 
 .bar1, .bar2, .bar3 {
@@ -53,12 +54,13 @@
   top: 0;
   left: 0;
   position: fixed;
-  background-color: yellow;
+  background-color: #ffcc33;
+  opacity: .8;
   overflow-y: hidden;
   transition: .5s;
 }
 
-.menu-content {
+.overlay-content {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
@@ -82,6 +84,7 @@
 //
 //   }
 // }
+
 body {
   font-family: 'Helvetica', sans-serif;
 }

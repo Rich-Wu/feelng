@@ -5,19 +5,34 @@
   <div class="bar3"></div>
 
   <div id="menu-content" class="menu-dropdown">
-    <a href="/">About</a>
-    <a href="/">Login</a>
-    <a href="/">Signup</a>
+    <div onclick="openOverlay()">About</div>
+    <div onclick="openOverlay()">Login</div>
+    <div onclick="openOverlay()">Signup</div>
   </div>
 </div>
 
-<div id="form-overlay" class="overlay-container">
+<div id="overlay" class="overlay-container">
   <div class="closebtn" onclick="closeOverlay()">&times;</div>
-  <div class="menu-content">
+  <div class="overlay-content">
     <div class="signup">Signup</div>
     <div class="login">Login</div>
   </div>
 </div>
 
+<!-- EMOJI GRID -->
 
+<h1>What's The Mood?</h1>
+<%= form_tag("/mood", method: "post", class: 'container') do %>
+  <%= hidden_field_tag 'coordinates' %>
+  <% Dir.foreach('./app/assets/images/emojis') do |item| %>
+    <% next if item[0] == '.' %>
+    <div class="emoji">
+      <%= image_tag("emojis/#{item}") %>
+      <%= radio_button_tag(:mood, item) %>
+    </div>
+  <% end %>
+  <%= submit_tag('Submit') %>
+<% end %>
+
+<%= javascript_include_tag 'emoji-grid' %>
 <script src="/assets/pages.js"></script>
