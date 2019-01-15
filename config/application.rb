@@ -27,7 +27,7 @@ def query_foursquare(query, location)
   curl.url = Curl::urlalize("https://api.foursquare.com/v2/venues/explore", params = {
     "client_id": ENV['FOURSQ_ID'],
     "client_secret": ENV['FOURSQ_KEY'],
-    "ll": "40.7243,-74.0018",
+    "ll": location,
     "query": query,
     "v": "20180323",
     "limit": 1
