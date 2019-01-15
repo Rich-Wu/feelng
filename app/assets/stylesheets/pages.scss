@@ -2,6 +2,89 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// MENU ICON
+.menu-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  float: right;
+
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: black;
+  transition: .5s;
+}
+
+// MENU DROPDOWN
+.menu-dropdown {
+  background-color: #ffcc33;
+  position: absolute;
+  right: 0;
+  top: 32.5px;
+  display: none;
+  z-index: 1;
+  min-width: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
+  0 11px 6px -7px rgba(43,43,43,0.1);
+}
+
+.menu-dropdown div {
+  display: block;
+  padding: .7em .2em;
+  text-decoration: none;
+    &:hover {
+    background-color: whitesmoke;
+  }
+}
+
+.drop {
+  display: block;
+}
+
+// MENU OVERLAY
+.overlay-container {
+  height: 0;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #ffcc33;
+  opacity: .9;
+  overflow-y: hidden;
+  transition: .5s;
+}
+
+.overlay-about, .overlay-login, .overlay-signup {
+ display: grid;
+ justify-content: center;
+ grid-template: 20px 20px / auto;
+ grid-gap: 10px;
+ position: relative;
+ text-align: center;
+ top: 10em;
+}
+
+.closebtn {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+// @media screen and (max-width: 1066px) {
+//   .menu-content {
+//     font-size: 1.5em;
+//
+//   }
+// }
+
 body {
   font-family: 'Helvetica', sans-serif;
 }
