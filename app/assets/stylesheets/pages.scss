@@ -4,11 +4,10 @@
 
 // MENU ICON
 .menu-container {
+  position: relative;
   display: inline-block;
   cursor: pointer;
   float: right;
-  z-index: 1;
-
 }
 
 .bar1, .bar2, .bar3 {
@@ -19,22 +18,28 @@
   transition: .4s;
 }
 
-// .switch .bar1 {
-//   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-//
+// MENU DROPDOWN
+// .menu-container .menu-dropdown {
+//   background-color: lightgrey;
+//   display: inline-block;
 // }
-//
-// .switch .bar2 {
-//   opacity: 0;
-//     .overlay-container {
-//       height: 0;
-//     }
-// }
-//
-// .switch .bar3 {
-//   -webkit-transform: rotate(45deg) translate(-8px, -8px);
-//
-// }
+
+.menu-dropdown {
+  background-color: lightgrey;
+  position: absolute;
+  display: none;
+  min-width: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
+  0 11px 6px -7px rgba(43,43,43,0.1);
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: .2em .2em;
+  text-decoration: none;
+}
+
 
 // MENU OVERLAY
 .overlay-container {
