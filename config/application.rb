@@ -22,7 +22,13 @@ module Groupproject
   end
 end
 
+def mood(string)
+  # truncates any mood*.png into mood*
+  return string.split(".")[0]
+end
+
 def query_foursquare(query, location)
+  # event call for foursquare
   curl = Curl::Easy.new
   curl.url = Curl::urlalize("https://api.foursquare.com/v2/venues/explore", params = {
     "client_id": ENV['FOURSQ_ID'],
@@ -35,4 +41,19 @@ def query_foursquare(query, location)
   curl.perform
   data = JSON.parse(curl.body_str)
   return data['response']
+end
+
+def query_unsplash(query, orientation)
+  # photo call for unsplash
+  curl = Curl::Easy.new
+  curl.url = Curl::urlalize("https://api.unsplash.com/photos/random", params = {
+    "client_id": ENV['UNSPLASH_ID'],
+    "Accept-Version": "v1",
+    "query": query,
+    # landscape, portrait, or squarish
+    "orientation": orientation
+    })
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data
 end

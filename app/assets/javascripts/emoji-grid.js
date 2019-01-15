@@ -1,11 +1,10 @@
-console.log('Linked');
+// console.log('Linked');
 if ("geolocation" in navigator) {
   // check if geolocation is supported/enabled on current browser
   navigator.geolocation.getCurrentPosition(
    function success(position) {
      // for when getting location is a success
-    console.log('latitude', position.coords.latitude,
-                 'longitude', position.coords.longitude);
+    //console.log('latitude', position.coords.latitude,'longitude', position.coords.longitude);
     var coordinates = document.getElementById('coordinates');
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
