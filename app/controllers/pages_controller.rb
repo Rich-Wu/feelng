@@ -9,9 +9,8 @@ class PagesController < ApplicationController
   def results
     @mood = params['mood']
     # photo API
-    @photo = query_unsplash(mood(params['mood']),"portrait")
+    @photo = query_unsplash(mood(params['mood']),"landscape")
     # color API
-
     # music API
     # AUTHORIZE SPOTIFY HERE
     
