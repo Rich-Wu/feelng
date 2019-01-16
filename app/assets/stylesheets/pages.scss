@@ -73,18 +73,19 @@ body {
  top: 10em;
 }
 
-.overlay-login input {
+.overlay-login input,
+.overlay-signup input {
     margin: 1em;
     border-radius: 5px;
-    padding: .5em;
+    padding: .5em 1.5em;
+    min-width: 75%;
 }
 
-.loginBtn {
+.loginBtn, .createBtn {
   background-color: transparent;
   border-color: transparent;
   font-weight: bold;
   font-size: smaller;
-  width: 75%;
     &:hover {
     opacity: .8;
     color: whitesmoke;
@@ -104,12 +105,18 @@ body {
 @media only screen and (max-width: 376px) {
   .menu-container {
     float: none;
+      .menu-dropdown {
+      left: 0;
+      position: relative;
+      top: 0;
+      max-width: 50%;
   }
-  .menu-dropdown {
-    left: 0;
-    position: relative;
-    top: 0;
-    max-width: 50%;
+}
+  .overlay-login {
+    margin-right: 0;
+  }
+  .closebtn {
+    left: 85%;
   }
 }
 
