@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     rescue ActiveRecord::RecordNotUnique
-      p "Something bad happened"
+      p "There is already a record of this user"
     ensure
       respond_to do |format|
         format.js
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def view
-    @user = User.find(1)
+    @user = User.find(session[:id])
   end
 
   def update

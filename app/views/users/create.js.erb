@@ -1,7 +1,7 @@
 <% if @user.id %>
-  console.log('a user was just created');
   closeOverlay3();
   <% session[:id] = @user.id %>
+  location.reload();
 <% else %>
   console.log('The creation process failed');
 <% end %>
