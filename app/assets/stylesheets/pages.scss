@@ -1,6 +1,9 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Helvetica', sans-serif;
+}
 
 // MENU ICON
 .menu-container {
@@ -70,6 +73,26 @@
  top: 10em;
 }
 
+.overlay-login input {
+    margin: 1em;
+    border-radius: 5px;
+    padding: .5em;
+}
+
+.loginBtn {
+  background-color: transparent;
+  border-color: transparent;
+  font-weight: bold;
+  font-size: smaller;
+  width: 75%;
+    &:hover {
+    opacity: .8;
+    color: whitesmoke;
+    background-color: #29335C;
+    border-color: transparent;
+  }
+}
+
 .closebtn {
   position: absolute;
   cursor: pointer;
@@ -90,10 +113,7 @@
   }
 }
 
-body {
-  font-family: 'Helvetica', sans-serif;
-}
-
+// EMOJI GRID
 h1 {
   font-size: 3rem;
 }
