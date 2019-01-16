@@ -13,48 +13,4 @@
   <%= submit_tag('Submit') %>
 <% end %>
 
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
 
-<script>
-  window.onSpotifyWebPlaybackSDKReady = () => {
-      const token = "<%=current_spotify_user.access_token.to_s%>";
-      const player = new Spotify.Player({
-          name: "Feelng's Player",
-          getOauthToken: cb => { cb(token); }
-      });    
-
-      player.addListener('initialization_error', ({ message }) => { console.error(message); });
-        player.addListener('authentication_error', ({ message }) => { console.error(message); });
-        player.addListener('account_error', ({ message }) => { console.error(message); });
-        player.addListener('playback_error', ({ message }) => { console.error(message); });
-
-        // Playback status updates
-        player.addListener('player_state_changed', state => { console.log(state); });
-
-        // Ready
-        player.addListener('ready', ({ device_id }) => {
-          console.log('Ready with Device ID', device_id);
-        });
-
-        // Not Ready
-        player.addListener('not_ready', ({ device_id }) => {
-          console.log('Device ID has gone offline', device_id);
-        });
-
-        // Connect to the player!
-        player.connect();
-
-  };
-
-  function play(device_id) {
-  $.ajax({
-   url: "https://api.spotify.com/v1/me/player/play?device_id=" + device_id,
-   type: "PUT",
-   data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
-   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer <%=current_spotify_user.access_token%>' );},
-   success: function(data) { 
-     console.log(data)
-   }
-  });
-}
-</script>
