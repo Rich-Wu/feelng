@@ -293,7 +293,7 @@ def query_foursquare(query, location)
     "client_id": ENV['FOURSQ_ID'],
     "client_secret": ENV['FOURSQ_KEY'],
     "ll": location,
-    "query": query,
+    "query": event(query),
     "v": "20180323",
     "limit": 1
     })
@@ -308,7 +308,7 @@ def query_unsplash(query, orientation)
   curl.url = Curl::urlalize("https://api.unsplash.com/photos/random", params = {
     "client_id": ENV['UNSPLASH_ID'],
     "Accept-Version": "v1",
-    "query": query,
+    "query": photo(query),
     # landscape, portrait, or squarish
     "orientation": orientation
     })
