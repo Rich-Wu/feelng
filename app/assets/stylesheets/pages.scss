@@ -78,12 +78,17 @@
   font-size: 60px;
 }
 
-// @media screen and (max-width: 1066px) {
-//   .menu-content {
-//     font-size: 1.5em;
-//
-//   }
-// }
+@media only screen and (max-width: 376px) {
+  .menu-container {
+    float: none;
+  }
+  .menu-dropdown {
+    left: 0;
+    position: relative;
+    top: 0;
+    max-width: 50%;
+  }
+}
 
 body {
   font-family: 'Helvetica', sans-serif;

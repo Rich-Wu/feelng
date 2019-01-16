@@ -3,7 +3,7 @@ var menu_container = document.getElementsByClassName('menu-container')[0];
 var about_overlay = document.getElementById('overlay1');
 var login_overlay = document.getElementById('overlay2');
 var signup_overlay = document.getElementById('overlay3');
-var bar_1 = document.getElementsByClassName('bar1')[0];
+
 
 // DISPLAYS MENU CONTENT
 function openMenu() {
@@ -49,9 +49,25 @@ function closeOverlay3() {
 }
 
 // CLOSES MENU CONTENT
-window.onclick = function(event, event) {
-  if (event.target == menu_container) {
-  } else if (menu_content.classList.contains('drop')) {
-    menu_content.classList.remove('drop');
-  }
-}
+// window.addEventListener('click', myFunction);
+// function myFunction() {
+//   if (menu_content.classList.contains('drop')) {
+//     menu_content.classList.remove('drop');
+//     console.log('testing');
+//   }
+// }
+
+// window.onclick = function(event) {
+//   if (!event.target.matches('.menu-container')) {
+//     var menu_content = document.getElementsByClassName('menu-dropdown')[0];
+//     console.log(menu_content.length);
+//     var i;
+//     for (i = 0; i < menu_content.length; i++) {
+//       var openDropdown = menu_content[i];
+//       if (openDropdown.classList.contains('drop')) {
+//         openDropdown.classList.remove('drop');
+//         console.log('testing');
+//       }
+//     }
+//   }
+// }
