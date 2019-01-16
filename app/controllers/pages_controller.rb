@@ -7,13 +7,17 @@ class PagesController < ApplicationController
   end
 
   def results
+    if !params['mood']
+     params['mood'] = 'spooky'
+     params['coordinates'] = '40,-74'
+   end
     @mood = params['mood']
     # photo API
     @photo = query_unsplash(mood(params['mood']),"landscape")
     # color API
     # music API
     # AUTHORIZE SPOTIFY HERE
-    
+
     # poetry API
     # event API
     @event = query_foursquare(mood(params['mood']),params['coordinates'])
@@ -34,11 +38,10 @@ class PagesController < ApplicationController
           auth_response = HTTParty.post("https://accounts.spotify.com/api/token", :body=>body)
           auth_params = JSON.parse(auth_response.body)
           helpers.current_spotify_user.update(access_token: auth_params["access_token"])
-      
+
       else
           puts "Token is good"
       end
     end
 
 end
-
