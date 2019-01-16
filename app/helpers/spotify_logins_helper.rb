@@ -1,0 +1,2 @@
+module SpotifyLoginsHelper
+end

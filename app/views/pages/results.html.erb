@@ -7,3 +7,79 @@
 <%= render 'shared/event', object: @event %>
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
+
+<button id="prev">Previous</button>
+<button id="play">Play/Pause</button>
+<button id="next">Next</button>
+<p id="track_name">Track Name:</p>
+<p id="artist">Artist: </p>
+<p id="album">Album: </p>
+
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+<script>
+  window.onSpotifyWebPlaybackSDKReady = () => {
+      const token = "<%=current_spotify_user.access_token.to_s%>";
+      const player = new Spotify.Player({
+          name: "Feelng's Player",
+          getOauthToken: cb => { cb(token); }
+      });    
+
+      player.addListener('initialization_error', ({ message }) => { console.error(message); });
+        player.addListener('authentication_error', ({ message }) => { console.error(message); });
+        player.addListener('account_error', ({ message }) => { console.error(message); });
+        player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+        // Playback status updates
+        player.addListener('player_state_changed', state => { console.log(state); });
+
+        player.addListener('player_state_changed', ({
+            track_window: {current_track}
+        }) => {
+            document.getElementById("track_name").innerHTML = "Track Name " + current_track.name;
+            document.getElementById("artist").innerHTML = "Artist: " + current_track.artists[0].name;
+            document.getElementById("album").innerHTML = "Album: " + current_track.album.name;
+        });
+
+        // Ready
+        player.addListener('ready', ({ device_id }) => {
+          console.log('Ready with Device ID', device_id);
+        });
+
+        // Not Ready
+        player.addListener('not_ready', ({ device_id }) => {
+          console.log('Device ID has gone offline', device_id);
+        });
+
+        
+
+        document.getElementById("prev").addEventListener("click", function() {
+            player.pause().then(() => console.log("previous track playing"))
+        });
+        document.getElementById("play").addEventListener("click", function() {
+            player.togglePlay().then(() => console.log("Playback toggled"))
+        });
+        document.getElementById("next").addEventListener("click", function() {
+            player.nextTrack().then(() => console.log("Next Track Playing"))
+        });
+
+        // Connect to the player!
+        player.connect();
+
+
+
+  };
+
+  function play(device_id) {
+  $.ajax({
+    url: "https://api.spotify.com/v1/me/player/play?device_id=" + device_id,
+    type: "PUT",
+    data: '{"uris": ["spotify:track:65ES1qwOB577ZnTkizMXJJ"]}',
+    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer <%=current_spotify_user.access_token%>' );},
+    success: function(data) { 
+        console.log(data)
+    }
+  });
+}
+
+</script>
