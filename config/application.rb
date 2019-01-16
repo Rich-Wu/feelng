@@ -22,6 +22,22 @@ module Groupproject
   end
 end
 
+$feeling = {
+  "happy": {
+    "music": "cheerful",
+    "event": "cheerful",
+    "color": "yellow",
+    "photo": "joy"
+  },
+  "jovial": {
+    "music": "cheerful",
+    "event": "laughs",
+    "color": "yellow",
+    "photo": "happy"
+  }
+}
+
+
 def mood(string)
   # truncates any mood*.png into mood*
   return string.split(".")[0]
