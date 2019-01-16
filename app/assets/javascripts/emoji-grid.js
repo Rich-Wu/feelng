@@ -19,3 +19,6 @@ if ("geolocation" in navigator) {
   // get your location some other way
   console.log('geolocation is not enabled on this browser')
 }
+
+let body = document.getElementsByTagName('body')[0];
+body.style.backgroundImage = 'url()';

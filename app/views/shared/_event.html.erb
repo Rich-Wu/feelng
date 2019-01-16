@@ -1,0 +1,4 @@
+<div class="event" style="background-color: <%=@photo['color']%>">
+  <h2><%= @event['groups'][0]['items'][0]['venue']['name'] %></h2>
+  <p><%= @event['groups'][0]['items'][0]['venue']['location']['formattedAddress'].join(" ") %></p>
+</div>
