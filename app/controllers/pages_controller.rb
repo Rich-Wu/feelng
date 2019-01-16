@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @user = User.new
     render 'home'
   end
 

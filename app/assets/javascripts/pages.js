@@ -56,18 +56,3 @@ function closeOverlay3() {
 //     console.log('testing');
 //   }
 // }
-
-// window.onclick = function(event) {
-//   if (!event.target.matches('.menu-container')) {
-//     var menu_content = document.getElementsByClassName('menu-dropdown')[0];
-//     console.log(menu_content.length);
-//     var i;
-//     for (i = 0; i < menu_content.length; i++) {
-//       var openDropdown = menu_content[i];
-//       if (openDropdown.classList.contains('drop')) {
-//         openDropdown.classList.remove('drop');
-//         console.log('testing');
-//       }
-//     }
-//   }
-// }
