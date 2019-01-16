@@ -5,7 +5,7 @@ class SpotifyLoginsController < ApplicationController
       response_type: 'code',
       # Replace the redirect URI to the url responsible for saving usrs tokens
       redirect_uri: "http://localhost:3000/spotify_users/create",
-      scope: "streaming user-read-birthdate user-read-email user-read-private user-modify-playback-state user-read-currently-playing user-read-playback-state app-remote-control",
+      scope: "streaming user-read-birthdate user-read-email user-read-private user-modify-playback-state",
       show_dialog: true
     }
 
