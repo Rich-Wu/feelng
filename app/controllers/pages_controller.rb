@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
     # music API
     # AUTHORIZE SPOTIFY HERE
+    query_spotify(music(params['mood']))
     
     # poetry API
     # event API

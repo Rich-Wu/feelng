@@ -7,6 +7,7 @@
 <p id="track_name">Track Name:</p>
 <p id="artist">Artist: </p>
 <p id="album">Album: </p>
+<img src="#" alt="Album Cover" id="album_cover">
 
 
 
@@ -34,6 +35,7 @@
             document.getElementById("track_name").innerHTML = "Track Name " + current_track.name;
             document.getElementById("artist").innerHTML = "Artist: " + current_track.artists[0].name;
             document.getElementById("album").innerHTML = "Album: " + current_track.album.name;
+            document.getElementById("album_cover").src = current_track.album.images[0].url;
         });
 
         // Ready

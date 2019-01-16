@@ -2,9 +2,11 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'net/http'
+require 'httparty'
 require 'uri'
 require 'curb'
 require 'json'
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -36,6 +38,7 @@ $feeling = {
     "photo": "happy"
   },
   "friendly": {
+    "music": "cheerful",
     "event": "bars",
     "color": "peach",
     "photo": "friends"
@@ -315,4 +318,48 @@ def query_unsplash(query, orientation)
   curl.perform
   data = JSON.parse(curl.body_str)
   return data
+end
+
+def query_spotify(query)
+  id = ENV["SPOTIFY_ID"]
+  secret = ENV["SPOTIFY_SECRET"]
+  credentials = "#{id}:#{secret}"
+  # encode the string to base 64
+  enc = Base64.encode64(credentials)
+  enc = enc.gsub(/\s+/,"")
+
+  body = {
+      "grant_type" => "client_credentials"
+  }
+  
+  headers = {
+      "Authorization" => "Basic #{enc}"
+  }
+  # make the post request with required body and header parameters
+  response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body, :headers => headers)     
+  body = JSON.parse(response.body)
+  # set the access token for future calls
+  @client_access_token = body["access_token"]
+
+  query = {
+    "q" => query,
+    "type" => "playlist",
+    "limit"=> 50
+  }
+
+  user_headers = {
+    "Authorization" => "Bearer #{current_spotify_user.access_token}"
+  }
+  search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
+  body = JSON.parse(search_response.body)
+  items = body["playlists"]["items"]
+
+  playlists = []
+
+  items.each do |item|  
+    # Saving IDs to save space
+    playlists << item
+  end
+
+  @playlist = playlists.sample
 end
