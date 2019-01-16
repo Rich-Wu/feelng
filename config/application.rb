@@ -71,7 +71,7 @@ $feeling = {
     "photo": "seductive"
   },
   "silly": {
-    "music": "whimsical",
+    "music": "silly",
     "event": "quirky",
     "color": "orange",
     "photo": "silly"
@@ -93,13 +93,197 @@ $feeling = {
     "event": "famous",
     "color": "yellow",
     "photo": "famous"
+  },
+  "party": {
+    "music": "party",
+    "event": "gathering",
+    "color": "yellow",
+    "photo": "party"
+  },
+  "crafty": {
+    "music": "sexy",
+    "event": "flirt",
+    "color": "red",
+    "photo": "seduction"
+  },
+  "annoyed": {
+    "music": "annoyed",
+    "event": "home",
+    "color": "pink",
+    "photo": "annoyed"
+  },
+  "remorseful": {
+    "music": "sorry",
+    "event": "contemplative",
+    "color": "gray",
+    "photo": "tranquil"
+  },
+  "workout": {
+    "music": "workout",
+    "event": "exercise",
+    "color": "red",
+    "photo": "fitness"
+  },
+  "pain": {
+    "music": "hurt",
+    "event": "bars",
+    "color": "gray",
+    "photo": "sadness & pain"
+  },
+  "hurt": {
+    "music": "hurt",
+    "event": "peaceful",
+    "color": "beige",
+    "photo": "pain"
+  },
+  "distress": {
+    "music": "help",
+    "event": "stress relief",
+    "color": "red",
+    "photo": "help"
+  },
+  "furious": {
+    "music": "anger",
+    "event": "solitude",
+    "color": "red",
+    "photo": "furious"
+  },
+  "explicit": {
+    "music": "explicit",
+    "event": "nightlife",
+    "color": "red",
+    "photo": "fuck"
+  },
+  "mindblown": {
+    "music": "psychedelic",
+    "event": "mindblowing",
+    "color": "magenta",
+    "photo": "funky"
+  },
+  "bashful": {
+    "music": "shy person",
+    "event": "bashful",
+    "color": "green",
+    "photo": "shy"
+  },
+  "freezing": {
+    "music": "cold weather",
+    "event": "warm",
+    "color": "blue",
+    "photo": "cold"
+  },
+  "horrified": {
+    "music": "spooky",
+    "event": "horror",
+    "color": "black",
+    "photo": "spooky"
+  },
+  "worried": {
+    "music": "worry",
+    "event": "worry",
+    "color": "blue",
+    "photo": "worry"
+  },
+  "gleeful": {
+    "music": "glee",
+    "event": "upbeat",
+    "color": "yellow",
+    "photo": "cheer"
+  },
+  "thoughtful": {
+    "music": "contemplate",
+    "event": "ponder",
+    "color": "green",
+    "photo": "thoughtful"
+  },
+  "nervous": {
+    "music": "nervous",
+    "event": "calm",
+    "color": "gray",
+    "photo": "nervous"
+  },
+  "disdain": {
+    "music": "hate",
+    "event": "ugh",
+    "color": "red",
+    "photo": "hate"
+  },
+  "shocked": {
+    "music": "surprise",
+    "event": "shocking",
+    "color": "yellow",
+    "photo": "surprise"
+  },
+  "sleep": {
+    "music": "sleep",
+    "event": "home",
+    "color": "sky blue",
+    "photo": "peace"
+  },
+  "rich": {
+    "music": "wealthy",
+    "event": "extravagant",
+    "color": "green",
+    "photo": "extravagant"
+  },
+  "wicked": {
+    "music": "evil",
+    "event": "wicked",
+    "color": "purple",
+    "photo": "evil"
+  },
+  "poopy": {
+    "music": "poop",
+    "event": "poop",
+    "color": "brown",
+    "photo": "frustrated"
+  },
+  "spooky": {
+    "music": "spooky",
+    "event": "scary",
+    "color": "purple",
+    "photo": "creepy"
+  },
+  "games": {
+    "music": "video games",
+    "event": "games",
+    "color": "purple",
+    "photo": "video game"
+  },
+  "dance": {
+    "music": "dance",
+    "event": "dance",
+    "color": "red",
+    "photo": "dance"
+  },
+  "zen": {
+    "music": "zen",
+    "event": "yoga",
+    "color": "beige",
+    "photo": "calm"
   }
-}
 
+}
 
 def mood(string)
   # truncates any mood*.png into mood*
   return string.split(".")[0]
+end
+
+def music(mood)
+  return $feeling[mood.to_sym][:music]
+end
+
+def event(mood)
+  return $feeling[mood.to_sym][:event]
+end
+
+def color(mood)
+  return $feeling[mood.to_sym][:color]
+end
+
+def photo(mood)
+  return $feeling[mood.to_sym][:photo]
 end
 
 def query_foursquare(query, location)
