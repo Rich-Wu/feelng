@@ -34,6 +34,65 @@ $feeling = {
     "event": "laughs",
     "color": "yellow",
     "photo": "happy"
+  },
+  "friendly": {
+    "event": "bars",
+    "color": "peach",
+    "photo": "friends"
+  },
+  "content": {
+    "music": "peaceful",
+    "event": "park",
+    "color": "baby blue",
+    "photo": "tranquil"
+  },
+  "flirty": {
+    "music": "sexy",
+    "event": "bars",
+    "color": "red",
+    "photo": "romance"
+  },
+  "peaceful": {
+    "music": "chill",
+    "event": "peaceful",
+    "color": "blue",
+    "photo": "calm"
+  },
+  "loving": {
+    "music": "romance",
+    "event": "date spot",
+    "color": "pink",
+    "photo": "love"
+  },
+  "alluring": {
+    "music": "seductive",
+    "event": "romantic",
+    "color": "pink",
+    "photo": "seductive"
+  },
+  "silly": {
+    "music": "whimsical",
+    "event": "quirky",
+    "color": "orange",
+    "photo": "silly"
+  },
+  "studious": {
+    "music": "focus",
+    "event": "study",
+    "color": "blue",
+    "photo": "books"
+  },
+  "cool": {
+    "music": "pop",
+    "event": "hip",
+    "color": "blue",
+    "photo": "cool"
+  },
+  "starstruck": {
+    "music": "pop",
+    "event": "famous",
+    "color": "yellow",
+    "photo": "famous"
   }
 }
 
