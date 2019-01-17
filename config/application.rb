@@ -348,7 +348,7 @@ def query_spotify(query)
   }
 
   user_headers = {
-    "Authorization" => "Bearer #{current_spotify_user.access_token}"
+    "Authorization" => "Bearer #{helpers.current_spotify_user.access_token}"
   }
   search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
   body = JSON.parse(search_response.body)
