@@ -12,11 +12,14 @@
 }
 
 .bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  margin: 6px 0;
+  width: 25px;
+  height: 3px;
+  margin: 3px 0;
   background-color: black;
   transition: .5s;
+  position: relative;
+  right: 10px;
+  top: 10px;
 }
 
 // MENU DROPDOWN
@@ -24,7 +27,7 @@
   background-color: #ffcc33;
   position: absolute;
   right: 0;
-  top: 32.5px;
+  top: 40px;
   display: none;
   z-index: 1;
   min-width: 100px;
@@ -101,27 +104,46 @@ body {
   background-size: cover;
   margin: 0;
   position: fixed;
+  top: 0;
   z-index: -1;
+  background-attachment: fixed;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.2rem;
+}
+
+#main {
+  padding-top: 5vh;
+  text-align: center;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  grid-row-gap: 10px;
   img {
-    height: 60px;
+    height: 50px;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
 
 @media only screen and (min-width: 376px) {
+  h1 {
+    font-size: 4rem;
+  }
   .container {
     grid-template-columns: repeat(8, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    margin-top: 5vh;
     img {
-      height: 120px;
+      height: 100px;
     }
   }
 }
@@ -131,6 +153,7 @@ h1 {
   top: 0;
   color: white;
   padding: 3%;
+  z-index: 2;
   h1 {
     text-shadow: 5px 5px black;
   }
@@ -140,4 +163,34 @@ h1 {
     top: 10px;
     padding-left: 20px;
   }
+}
+
+/* HIDE RADIO */
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid #f00;
+}
+
+[type=submit] {
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  padding: 
 }

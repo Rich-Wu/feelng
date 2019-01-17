@@ -4,19 +4,20 @@
   padding: 3%;
   top: 20vh;
   min-height: 20%;
+  background-color: rgba(255, 255, 255, 0.7);
   h2 {
     color: white;
-    // mix-blend-mode: lighten;
     text-shadow: 3px 3px black;
   }
   h3, h4, p {
-    color: white;
-    mix-blend-mode: lighten;
+    color: black;
   }
 }
 
 #poem {
   left: 5vw;
+  height: 20vh;
+  overflow: scroll;
 }
 
 #music {
@@ -39,4 +40,21 @@
   p {
     display: inline;
   }
+}
+
+@media only screen and (max-width: 375px) {
+  .player {
+    display: none;
+  }
+  .feature {
+    width: 80vw;
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+  }
+  #poem {
+    margin-top: 20vh;
+  }
+
 }
