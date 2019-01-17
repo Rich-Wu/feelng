@@ -56,6 +56,7 @@
 
 <!-- EMOJI GRID -->
 <h1>What's The Mood?</h1>
+<!-- <h3>Welcome <%=current_spotify_user.username if current_spotify_user%></h3> -->
 <%= form_tag("/mood", method: "post", class: 'container') do %>
   <%= hidden_field_tag 'coordinates' %>
   <% Dir.foreach('./app/assets/images/emojis') do |item| %>

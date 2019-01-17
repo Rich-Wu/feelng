@@ -1,0 +1,42 @@
+.feature {
+  width: 20vw;
+  position: absolute;
+  padding: 3%;
+  top: 20vh;
+  min-height: 20%;
+  h2 {
+    color: white;
+    // mix-blend-mode: lighten;
+    text-shadow: 3px 3px black;
+  }
+  h3, h4, p {
+    color: white;
+    mix-blend-mode: lighten;
+  }
+}
+
+#poem {
+  left: 5vw;
+}
+
+#music {
+  left: 37vw;
+}
+
+#event {
+  left: 70vw;
+}
+
+.player {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 1%;
+  p {
+    display: inline;
+  }
+}

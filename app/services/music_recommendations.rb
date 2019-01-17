@@ -69,4 +69,6 @@ class MusicRecommendations
         # Return a random playlist id from the list of playlists
         return playlists.sample
     end
+
+
 end
