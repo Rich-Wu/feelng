@@ -10,12 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_192954) do
+ActiveRecord::Schema.define(version: 2019_01_17_193131) do
 
   create_table "entries", force: :cascade do |t|
-    t.string "emoji"
-    t.string "color"
-    t.string "song"
     t.integer "journal_id"
     t.string "event"
     t.string "content"
@@ -23,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_01_15_192954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "mood"
+    t.string "playlist"
   end
 
   create_table "journals", force: :cascade do |t|

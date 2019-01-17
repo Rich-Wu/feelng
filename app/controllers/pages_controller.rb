@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def results
+    @entry = Entry.new
     if !params['mood']
       params['mood'] = 'spooky'
       params['coordinates'] = '40,-74'
