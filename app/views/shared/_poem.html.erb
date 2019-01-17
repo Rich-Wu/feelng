@@ -1,5 +1,10 @@
 <div class="feature" id="poem" style="background-color: <%=@photo['color']%>">
   <h2>Read</h2>
-  <h3>Title</h3>
-  <p>Poem</p>
+  <h3><%= @poem['title'] %></h3>
+  <h4><%= @poem['author'] %></h4>
+  <p>
+    <% @poem['lines'].each do |line| %>
+      <%= line %>
+    <% end %>
+  </p>
 </div>
