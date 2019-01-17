@@ -19,6 +19,10 @@ body {
   height: 5px;
   margin: 6px 0;
   background-color: black;
+  transition: .5s;
+  position: relative;
+  right: 10px;
+  top: 10px;
 }
 
 // MENU DROPDOWN
@@ -123,14 +127,18 @@ body {
 .simple-calendar {
   display: grid;
   justify-content: center;
-  .day {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    padding: 5px 51px 47px 0;
-  }
   .calendar-heading {
     text-align: center;
     font-size: larger;
+  }
+  .table {
+    position: relative;
+    top: 1em;
+  }
+  .day {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 0 20px 20px 0;
   }
 }
 
@@ -139,12 +147,18 @@ body {
   justify-content: center;
   position: relative;
   grid-gap: 20px;
-  width: 50%;
-  left: 25%;
-  background-color: red;
+  border-radius: 5px;
+  width: 40%;
+  left: 30%;
+  background-color: whitesmoke;
   top: 3em;
-  grid-template: 100px / 20px 20px 20px;
+  grid-template: 100px / 100px 100px 100px;
+  box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
+  0 15px 6px -7px rgba(43,43,43,0.1);
+}
 
+.results-wrapper img {
+  height: 85%;
 }
 
 @media screen and (max-width: 390px) {
@@ -152,10 +166,19 @@ body {
     display: grid;
     justify-content: center;
     position: relative;
-    .day {
-      padding: 5px 27px 30px 0;
+    // right: 9%;
+      .day {
+      padding: 5px 20px 20px 0;
   }
  }
+  .results-wrapper {
+    left: 30%;
+    text-align: center;
+    grid-template: 30% / auto;
+      .results-wrapper img {
+        height: 100%;
+    }
+  }
 }
 
 // Take automatic top margin off html
