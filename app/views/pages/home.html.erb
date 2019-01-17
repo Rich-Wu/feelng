@@ -54,17 +54,21 @@
 </div>
 
 <!-- EMOJI GRID -->
-<h1>What's The Mood?</h1>
+<h1 id="main">What's The Mood?</h1>
 <!-- <h3>Welcome <%=current_spotify_user.username if current_spotify_user%></h3> -->
-<%= form_tag("/mood", method: "post", class: 'container') do %>
-  <%= hidden_field_tag 'coordinates' %>
-  <% Dir.foreach('./app/assets/images/emojis') do |item| %>
-    <% next if item[0] == '.' %>
-    <div class="emoji">
-      <%= image_tag("emojis/#{item}") %>
-      <%= radio_button_tag(:mood, item) %>
-    </div>
-  <% end %>
+<%= form_tag("/mood", method: "post", class: "mood") do %>
+  <div class='container'>
+    <%= hidden_field_tag 'coordinates' %>
+    <% Dir.foreach('./app/assets/images/emojis') do |item| %>
+      <% next if item[0] == '.' %>
+      <div class="emoji">
+        <label>
+          <%= radio_button_tag(:mood, item) %>
+          <%= image_tag("emojis/#{item}") %>
+        </label>
+      </div>
+    <% end %>
+  </div>
   <%= submit_tag('Submit') %>
 <% end %>
 
