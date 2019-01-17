@@ -58,6 +58,7 @@ class PagesController < ApplicationController
     @playlist_img = @playlist["images"][0]["url"]
     @playlist_name = @playlist["name"]
     @playlist_uri = @playlist["uri"]
+    @playlist_id = @playlist["id"]
     
     # poetry API
     # event API

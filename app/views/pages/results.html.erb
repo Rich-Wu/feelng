@@ -15,6 +15,130 @@
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
 
 <script>
+    //getting token and playlist uri from controller
+    const playlist_uri = "<%=@playlist_uri.to_s%>";
+    const token = "<%=current_spotify_user.access_token.to_s%>"
+
+    //intiialize sdk
+    window.onSpotifyWebPlaybackSDKReady = () => {};
+
+    //async methods for waiting for sdk to load and also for player to be selected
+    async function waitForSDKLoad() {
+        return new Promise( (resolve) => {
+            const interval = setInterval(() => {
+                if (window.Spotify) {
+                    resolve(window.Spotify);
+                    clearInterval(interval);
+                }
+                else {
+                    window.onSpotifyWebPlaybackSDKReady = () => {
+                        resolve(window.Spotify);
+                    };
+                }
+            });
+        });
+    };
+
+    async function waitForPlayerSelect(sdk) {
+        return new Promise((resolve) => {
+            let interval = setInterval(async() => {
+                let state = await sdk.getCurrentState();
+                if (state !== null) {
+                    resolve();
+                    clearInterval(interval);
+                }
+            });
+        });
+    };
+
+    async function play(device_id, playlist) {
+        return new Promise((resolve) => {
+            fetch(`https://api.spotify.com/v1/me/player/player?device_id=${device_id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    context_uri: [playlist]
+                }),
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(resolve);
+        });
+    }
+
+    (async () => {
+        const { Player } = await waitForSDKLoad();
+        console.log("We loaded async-ly");
+
+        const sdk = new Player({
+            name: "Feelng's Player",
+            getOauthToken: cb => { cb(token);}
+        });
+
+        sdk.on("player_state_changed", state => {
+            let {
+                id,
+                uri: track_uri,
+                name: track_name,
+                duration_ms,
+                position, 
+                artists,
+                album: {
+                    name: album_name,
+                    uri: album_uri,
+                    images: album_images
+                }
+            } = state.track_window.current_track;
+            $('#track_name').innerHTML('Track Name: ' + track_name);
+            $('#artist').innerHTML('Artist: ' + artists[0].name);
+            $('#album').innerHTML('Album: ' + album_name);
+            $('#album_cover').attr('src', album_images[0].url);
+        });
+
+
+
+        document.getElementById("prev").addEventListener("click", async function() {
+            await sdk.previousTrack();
+        });
+        document.getElementById("play").addEventListener("click", async function() {
+            await sdk.togglePlay();
+        });
+        document.getElementById("next").addEventListener("click", async function() {
+            await sdk.nextTrack();
+        });
+
+        sdk.on('ready', data => {
+            let { device_id } = data;
+            console.log('Ready with Device ID', device_id);
+            play(device_id, playlist_uri);
+        });
+
+        let connected = await sdk.connect();
+        if(connected) {
+            console.log("SDK Connected");
+            let state = await waitForPlayerSelect(sdk);
+            let {
+                id,
+                uri: track_uri,
+                name: track_name,
+                duration_ms,
+                position,
+                artists,
+                album: {
+                    name: album_name,
+                    uri: album_uri,
+                    images: album_images
+                }
+            } = state.track_window.current_track;
+            console.log(`WE LISTENING TO ${track_name} by ${artists[0].name}!`);
+        }
+        else {
+            console.log("Not connected");   
+        }
+    })();
+
+    
+    
+/*
   window.onSpotifyWebPlaybackSDKReady = () => {
       const token = "<%=current_spotify_user.access_token.to_s%>";
       const player = new Spotify.Player({
@@ -51,15 +175,7 @@
 
         
 
-        document.getElementById("prev").addEventListener("click", function() {
-            player.previousTrack().then(() => console.log("previous track playing"))
-        });
-        document.getElementById("play").addEventListener("click", function() {
-            player.togglePlay().then(() => console.log("Playback toggled"))
-        });
-        document.getElementById("next").addEventListener("click", function() {
-            player.nextTrack().then(() => console.log("Next Track Playing"))
-        });
+       
 
         // Connect to the player!
         player.connect();
@@ -81,6 +197,6 @@
         console.log(data);
     }
   });
-}
+}*/
 
 </script>
