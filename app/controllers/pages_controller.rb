@@ -14,9 +14,7 @@ class PagesController < ApplicationController
     @mood = params['mood']
     # photo API
     @photo = query_unsplash(mood(params['mood']),"landscape")
-    # color API
     # music API
-    # AUTHORIZE SPOTIFY HERE
 
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
