@@ -8,9 +8,9 @@ class PagesController < ApplicationController
 
   def results
     if !params['mood']
-     params['mood'] = 'spooky'
-     params['coordinates'] = '40,-74'
-   end
+      params['mood'] = 'spooky'
+      params['coordinates'] = '40,-74'
+    end
     @mood = params['mood']
     # photo API
     @photo = query_unsplash(mood(params['mood']),"landscape")
