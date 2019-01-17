@@ -56,7 +56,7 @@ $feeling = {
     "event": "bars",
     "color": "red",
     "photo": "romance",
-    "poem": ["Love Sonnets", "Fragments", "Paris", "Epistle to Miss Blount", "With the Works of Voiture.", "Epistle to Mrs Teresa Blount.  on Her Leaving the Town After the Coronation.", "To Mr C.", "St James's Place.", "Song To Celia - II", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXV: One Day I Wrote Her Name", "Summum Bonum"]
+    "poem": ["Fragments", "Paris", "Epistle to Miss Blount", "With the Works of Voiture.", "Epistle to Mrs Teresa Blount.  on Her Leaving the Town After the Coronation.", "To Mr C.", "St James's Place.", "Song To Celia - II", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXV: One Day I Wrote Her Name", "Summum Bonum"]
   },
   "peaceful": {
     "music": "chill",
@@ -70,14 +70,14 @@ $feeling = {
     "event": "date spot",
     "color": "pink",
     "photo": "love",
-    "poem": ["Love Sonnets", "Sonnet 74", "Epitaph. on Two Lovers Struck Dead by Lightning.", "Book IV. Ode I. to Venus.", "Autumn.", "Winter.", "Epistle to Miss Blount, With the Works of Voiture.", "Etude Realiste", "Not A Child", "A Ninth Birthday", "The Dream", "A Letter to Her Husband", "Song To Celia - II", "A Birthday", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXIV: Most Happy Letters", "Amoretti LXXV: One Day I Wrote Her Name", "Sonnet 32 - The first time that the sun rose on thine oath", "Marriage Bells"]
+    "poem": ["Sonnet 74", "Epitaph. on Two Lovers Struck Dead by Lightning.", "Book IV. Ode I. to Venus.", "Autumn.", "Winter.", "Epistle to Miss Blount, With the Works of Voiture.", "Etude Realiste", "Not A Child", "A Ninth Birthday", "The Dream", "A Letter to Her Husband", "Song To Celia - II", "A Birthday", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXIV: Most Happy Letters", "Amoretti LXXV: One Day I Wrote Her Name", "Sonnet 32 - The first time that the sun rose on thine oath", "Marriage Bells"]
   },
   "alluring": {
     "music": "seductive",
     "event": "romantic",
     "color": "pink",
     "photo": "seductive",
-    "poem": ["Love Sonnets", "Fragments", "Paris", "Epistle to Miss Blount, With the Works of Voiture.", "Epistle to Mrs Teresa Blount.  on Her Leaving the Town After the Coronation.", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXV: One Day I Wrote Her Name", "Summum Bonum"]
+    "poem": ["Fragments", "Paris", "Epistle to Miss Blount, With the Works of Voiture.", "Epistle to Mrs Teresa Blount.  on Her Leaving the Town After the Coronation.", "The Passionate Shepherd To His Love", "On My Wife's Birth-Day", "Amoretti LXXV: One Day I Wrote Her Name", "Summum Bonum"]
   },
   "silly": {
     "music": "silly",
@@ -126,7 +126,7 @@ $feeling = {
     "event": "home",
     "color": "pink",
     "photo": "annoyed",
-    "poem": ["Rival Sonnets", "The Alley", "Artemisia.", "Phryne.", "To Mr John Moore, Author of the Celebrated Worm-Powder.", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey.", "Home:abs", "Love and Friendship"]
+    "poem": ["The Alley", "Artemisia.", "Phryne.", "To Mr John Moore, Author of the Celebrated Worm-Powder.", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey.", "Home:abs", "Love and Friendship"]
   },
   "remorseful": {
     "music": "sorry",
@@ -147,14 +147,14 @@ $feeling = {
     "event": "bars",
     "color": "gray",
     "photo": "sadness & pain",
-    "poem": ["Dark Lady Sonnets", "Rival Sonnets", "Epitaph. on Two Lovers Struck Dead by Lightning", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "On the Death of Robert Browning", "Sorrow:abs", "The Lost Friend", "Life:abs", "Hope:abs", "Bridal Ballad", "I Built Myself a House of Glass", "Sympathy", "Loss And Gain"]
+    "poem": ["Epitaph. on Two Lovers Struck Dead by Lightning", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "On the Death of Robert Browning", "Sorrow:abs", "The Lost Friend", "Life:abs", "Hope:abs", "Bridal Ballad", "I Built Myself a House of Glass", "Sympathy", "Loss And Gain"]
   },
   "hurt": {
     "music": "hurt",
     "event": "peaceful",
     "color": "beige",
     "photo": "pain",
-    "poem": ["Dark Lady Sonnets", "Rival Sonnets", "Ode in Memory of the American Volunteers Fallen for France", "To Mr John Moore, Author of the Celebrated Worm-Powder", "On the Death of Robert Browning", "The Lost Friend", "A Farewell", "A Prayer", "Life:abs", "Hope:abs", "Later life", "Bridal Ballad", "Loss And Gain"]
+    "poem": ["Ode in Memory of the American Volunteers Fallen for France", "To Mr John Moore, Author of the Celebrated Worm-Powder", "On the Death of Robert Browning", "The Lost Friend", "A Farewell", "A Prayer", "Life:abs", "Hope:abs", "Later life", "Bridal Ballad", "Loss And Gain"]
   },
   "distress": {
     "music": "help",
@@ -189,7 +189,7 @@ $feeling = {
     "event": "bashful",
     "color": "green",
     "photo": "shy",
-    "poem": ["Love Sonnets", "To Mr C", "St James's Place", "Not A Child", "The Passionate Shepherd To His Love"]
+    "poem": ["To Mr C", "St James's Place", "Not A Child", "The Passionate Shepherd To His Love"]
   },
   "freezing": {
     "music": "cold weather",
@@ -203,14 +203,14 @@ $feeling = {
     "event": "horror",
     "color": "black",
     "photo": "spooky",
-    "poem": ["Dark Lady Sonnets", "Death Sonnets", "Artemisia", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "Lorraine", "I felt a Funeral, in my Brain"]
+    "poem": ["Artemisia", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "Lorraine", "I felt a Funeral, in my Brain"]
   },
   "worried": {
     "music": "worry",
     "event": "worry",
     "color": "blue",
     "photo": "worry",
-    "poem": ["Rival Sonnets", "I Have A Rendezvous With Death", "The Dying Christian to His Soul", "On the Death of Robert Browning", "The Lost Friend", "Dreams:abs", "Life:abs", "Love and Friendship", "Later life", "I Built Myself a House of Glass", "Loss And Gain"]
+    "poem": ["I Have A Rendezvous With Death", "The Dying Christian to His Soul", "On the Death of Robert Browning", "The Lost Friend", "Dreams:abs", "Life:abs", "Love and Friendship", "Later life", "I Built Myself a House of Glass", "Loss And Gain"]
   },
   "gleeful": {
     "music": "glee",
@@ -238,7 +238,7 @@ $feeling = {
     "event": "ugh",
     "color": "red",
     "photo": "hate",
-    "poem": ["Rival Sonnets", "The Alley", "Artemisia", "Phryne", "To Mr John Moore", "Author of the Celebrated Worm-Powder", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey", "Love and Friendship", "Later life", "Bridal Ballad"]
+    "poem": ["The Alley", "Artemisia", "Phryne", "To Mr John Moore", "Author of the Celebrated Worm-Powder", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey", "Love and Friendship", "Later life", "Bridal Ballad"]
   },
   "shocked": {
     "music": "surprise",
@@ -266,7 +266,7 @@ $feeling = {
     "event": "wicked",
     "color": "purple",
     "photo": "evil",
-    "poem": ["Dark Lady Sonnets", "Death Sonnets", "I Have A Rendezvous With Death", "To Mr John Moore, Author of the Celebrated Worm-Powder", "To Mr C", "St James's Place", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey", "Safety-Clutch", "There Is No God", "the Wicked Sayeth", "Lorraine"]
+    "poem": ["I Have A Rendezvous With Death", "To Mr John Moore, Author of the Celebrated Worm-Powder", "To Mr C", "St James's Place", "Epitaph. for One Who Would Not Be Buried in Westminster Abbey", "Safety-Clutch", "There Is No God", "the Wicked Sayeth", "Lorraine"]
   },
   "poopy": {
     "music": "poop",
@@ -280,7 +280,7 @@ $feeling = {
     "event": "scary",
     "color": "purple",
     "photo": "creepy",
-    "poem": ["Dark Lady Sonnets", "Death Sonnets", "I Have A Rendezvous With Death", "Ode in Memory of the American Volunteers Fallen for France", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "On the Death of Robert Browning", "Lorraine", "A Dream Within A Dream", "Bridal Ballad", "A Thought For A Lonely Death-Bed", "I felt a Funeral in my Brain"]
+    "poem": ["I Have A Rendezvous With Death", "Ode in Memory of the American Volunteers Fallen for France", "To Mr John Moore, Author of the Celebrated Worm-Powder", "The Dying Christian to His Soul", "On the Death of Robert Browning", "Lorraine", "A Dream Within A Dream", "Bridal Ballad", "A Thought For A Lonely Death-Bed", "I felt a Funeral in my Brain"]
   },
   "games": {
     "music": "video games",
@@ -329,6 +329,15 @@ end
 
 def poem(mood)
   return $feeling[mood.to_sym][:poem][rand($feeling[mood.to_sym][:poem].length)]
+end
+
+def query_poetrydb(mood)
+  # poem call for poetrydb
+  curl = Curl::Easy.new
+  curl.url = "http://poetrydb.org/title/#{poem(mood).gsub(" ","%20")}"
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data[0]
 end
 
 def query_foursquare(query, location)
