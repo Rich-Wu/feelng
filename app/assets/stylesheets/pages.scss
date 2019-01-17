@@ -139,6 +139,9 @@ body {
   display: grid;
   justify-content: center;
   position: relative;
+  grid-gap: 20px;
+  width: 50%;
+  left: 25%;
   background-color: red;
   top: 3em;
   grid-template: 100px / 20px 20px 20px;

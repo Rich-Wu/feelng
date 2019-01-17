@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
 
   def results
+    @user = User.new
     if !params['mood']
       params['mood'] = 'spooky'
       params['coordinates'] = '40,-74'
