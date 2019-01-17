@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     # AUTHORIZE SPOTIFY HERE
 
     # poetry API
+    @poem = query_poetrydb(mood(params['mood']))
     # event API
     @event = query_foursquare(mood(params['mood']),params['coordinates'])
     render 'results'
