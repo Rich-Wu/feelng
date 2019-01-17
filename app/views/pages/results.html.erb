@@ -3,15 +3,15 @@
 
 <!-- MENU SECTION  -->
 <div class="menu-container" onclick="openMenu()">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
+  <div class="bar1" style="background-color: <%=@photo['color']%>"></div>
+  <div class="bar2" style="background-color: <%=@photo['color']%>"></div>
+  <div class="bar3" style="background-color: <%=@photo['color']%>"></div>
 
-  <div id="menu-content" class="menu-dropdown">
+  <div id="menu-content" class="menu-dropdown" style="background-color: <%=@photo['color']%>">
     <div onclick="openOverlay1()">About</div>
     <% if !session[:id] %>
-      <div onclick="openOverlay2()">Login</div>
-      <div onclick="openOverlay3()">Signup</div>
+      <div onclick="openOverlay2()">Signup</div>
+      <div onclick="">Spotify Authentication</div>
     <% else %>
       <%= link_to "Profile", "/profile" %>
       <%= link_to "Logout", logout_path, method: :post %>
@@ -20,7 +20,7 @@
 </div>
 
 <!-- MENU OVERLAYS -->
-<div id="overlay1" class="overlay-container">
+<div id="overlay1" class="overlay-container" style="background-color: <%=@photo['color']%>">
   <div class="closebtn" onclick="closeOverlay1()">&times;</div>
   <div class="overlay-about">
     <p>'Feeln' is your go-to content generator app based...you guessed it! Your current mood!<br>
@@ -29,20 +29,8 @@
   </div>
 </div>
 
-<!-- <div id="overlay2" class="overlay-container">
+<div id="overlay2" class="overlay-container" style="background-color: <%=@photo['color']%>">
   <div class="closebtn" onclick="closeOverlay2()">&times;</div>
-  <div class="overlay-login"> -->
-    <%#= form_tag("/login", method: "post", remote: true) do %>
-      <!-- <h2>Login</h2> -->
-      <%#= text_field_tag :email, nil, placeholder: "Email" %><br>
-      <%#= text_field_tag :password, nil, placeholder: "Password" %><br>
-      <%#= submit_tag("Login", {:class => 'loginBtn'}) %>
-    <%# end %>
-  <!-- </div>
-</div> -->
-
-<div id="overlay3" class="overlay-container">
-  <div class="closebtn" onclick="closeOverlay3()">&times;</div>
   <div class="overlay-signup">
     <%= form_for @user, remote:true do |f| %>
       <h2>Signup</h2>
@@ -56,6 +44,7 @@
   </div>
 </div>
 
+<!-- RESULTS HEADER & MOOD ELEMENTS -->
 <div class="header">
   <h1>The Mood Is: <%= image_tag("emojis/#{@mood}") %></h1>
 </div>
@@ -64,6 +53,7 @@
 <%= render 'shared/music' %>
 <%= render 'shared/event', object: @event %>
 
+<!-- SPOTIFY CONTROLLERS -->
 <div class="player">
   <button id="prev">Previous</button>
   <button id="play">Play/Pause</button>
@@ -142,4 +132,4 @@
 
 </script>
 
-<%= javascript_include_tag 'emoji-grid', 'pages' %>
+<%= javascript_include_tag 'pages' %>

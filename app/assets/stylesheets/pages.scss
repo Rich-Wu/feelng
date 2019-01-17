@@ -19,7 +19,6 @@ body {
   height: 5px;
   margin: 6px 0;
   background-color: black;
-  transition: .5s;
 }
 
 // MENU DROPDOWN
@@ -63,7 +62,7 @@ body {
   transition: .5s;
 }
 
-.overlay-about, .overlay-login, .overlay-signup {
+.overlay-about, .overlay-signup {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
@@ -73,7 +72,6 @@ body {
  top: 10em;
 }
 
-.overlay-login input,
 .overlay-signup input {
     margin: 1em;
     border-radius: 5px;
@@ -81,16 +79,17 @@ body {
     min-width: 75%;
 }
 
-.loginBtn, .createBtn {
-  background-color: transparent;
+.createBtn {
+  position: relative;
+  left: .5em;
+  background-color: whitesmoke;
   border-color: transparent;
   font-weight: bold;
   font-size: smaller;
+  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
+  0 11px 6px -7px rgba(43,43,43,0.1);
     &:hover {
     opacity: .8;
-    color: whitesmoke;
-    background-color: #29335C;
-    border-color: transparent;
   }
 }
 
