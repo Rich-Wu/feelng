@@ -352,8 +352,9 @@ def query_spotify(query)
   }
   search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
   body = JSON.parse(search_response.body)
+  puts body
   items = body["playlists"]["items"]
-
+  
   playlists = []
 
   items.each do |item|  
@@ -363,3 +364,4 @@ def query_spotify(query)
 
   @playlist = playlists.sample
 end
+

@@ -8,7 +8,8 @@
 <p id="artist">Artist: </p>
 <p id="album">Album: </p>
 <img src="#" alt="Album Cover" id="album_cover">
-
+<p id="playlist_name"> <%= @playlist.name %> </p>
+<img src="<%=@playlist.img%>%" alt="" id="playlist_img">
 
 
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
@@ -63,15 +64,15 @@
         // Connect to the player!
         player.connect();
 
-
+        play(device_id, <%=@playist_uri%>)
 
   };
 
-  function play(device_id) {
+  function play(device_id, playlist_uri) {
   $.ajax({
     url: "https://api.spotify.com/v1/me/player/play?device_id=" + device_id,
     type: "PUT",
-    data: '{"uris": ["spotify:track:65ES1qwOB577ZnTkizMXJJ"]}',
+    data: '{"context_uri": [playlist_uri]}',
     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer <%=current_spotify_user.access_token%>' );},
     success: function(data) { 
         console.log(data)

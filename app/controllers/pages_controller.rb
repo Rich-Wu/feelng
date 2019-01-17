@@ -13,8 +13,10 @@ class PagesController < ApplicationController
     # color API
 
     # music API
-    # AUTHORIZE SPOTIFY HERE
     query_spotify(music(params['mood']))
+    @playlist_img = @playlist.images.url
+    @playlist_name = @playlist.name
+    @playlist_uri = @playlist.uri
     
     # poetry API
     # event API
