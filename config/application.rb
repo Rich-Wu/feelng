@@ -356,7 +356,6 @@ def query_poetrydb(mood)
     title = title.call
   end
   curl.url = "http://poetrydb.org/title/#{title.gsub(" ","%20")}"
-  p curl.url
   curl.perform
   data = JSON.parse(curl.body_str)
   return data[0]
