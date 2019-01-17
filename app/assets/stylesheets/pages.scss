@@ -116,6 +116,7 @@ h1 {
 #main {
   padding-top: 5vh;
   text-align: center;
+  text-shadow: 3px 3px gray;
 }
 
 .container {
@@ -126,13 +127,13 @@ h1 {
   img {
     height: 50px;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 }
 
 
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 600px) {
   h1 {
     font-size: 4rem;
   }
@@ -145,6 +146,17 @@ h1 {
     img {
       height: 100px;
     }
+  }
+  .entry_form {
+    margin-top: 55vh;
+    margin-left: 37vw;
+    input[type=submit] {
+      margin-left: 10vw;
+    }
+  }
+  #entry_content {
+    width: 720px;
+    height: 280px;
   }
 }
 
@@ -165,32 +177,52 @@ h1 {
   }
 }
 
-/* HIDE RADIO */
-[type=radio] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+@media only screen and (max-width: 600px) {
+#entry_content {
+  height: 20vh;
+  width: 80vw;
+}
 }
 
-/* IMAGE STYLES */
-[type=radio] + img {
-  cursor: pointer;
+#entry_content {
+  color: black;
+  background-color: rgba(255,255,255,0.8);
+  margin-left: 10vw;
+  &:focus {
+    outline: none;
+  }
 }
 
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-  outline: 2px solid #f00;
-}
+.mood {
+  /* HIDE RADIO */
+  [type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 
-[type=submit] {
-  background-color: black;
-  color: white;
-  border: none;
-  font-size: 24px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vh;
-  padding: 
+  /* IMAGE STYLES */
+  [type=radio] + img {
+    cursor: pointer;
+  }
+
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    transform: scale(1.2);
+    outline: 4px solid black;
+  }
+
+  [type=submit] {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    padding: 1% 2%;
+    box-shadow: 3px 3px gray;
+  }
 }
