@@ -28,7 +28,7 @@ $feeling = {
     "event": "cheerful",
     "color": "yellow",
     "photo": "joy",
-    "poem": ["To Mrs M. B. on Her Birthday", "Etude Realiste", "Babyhood", "Not A Child", "A Ninth Birthday", "Life", "A Birthday", "Apparitions", "\"Hope\" is the thing with feathers", "Marriage Bells"]
+    "poem": ["To Mrs M. B. on Her Birthday", "Etude Realiste", "Babyhood", "Not A Child", "A Ninth Birthday", "Life", "A Birthday", "Apparitions", " is the thing with feathers", "Marriage Bells"]
   },
   "jovial": {
     "music": "cheerful",
@@ -49,7 +49,7 @@ $feeling = {
     "event": "park",
     "color": "baby blue",
     "photo": "tranquil",
-    "poem": ["Under the Greenwood Tree", "Sonnet 74", "Paris, To Mrs M. B. on Her Birthday.", "Ode on Solitude.", "Etude Realiste", "Babyhood", "Not A Child", "A Ninth Birthday", "A Birthday", "Amoretti LXXIV: Most Happy Letters", "Sonnet 32 - The first time that the sun rose on thine oath", "\"Hope\" is the thing with feathers", "Marriage Bells"]
+    "poem": ["Under the Greenwood Tree", "Sonnet 74", "Paris, To Mrs M. B. on Her Birthday.", "Ode on Solitude.", "Etude Realiste", "Babyhood", "Not A Child", "A Ninth Birthday", "A Birthday", "Amoretti LXXIV: Most Happy Letters", "Sonnet 32 - The first time that the sun rose on thine oath", " is the thing with feathers", "Marriage Bells"]
   },
   "flirty": {
     "music": "sexy",
@@ -63,7 +63,7 @@ $feeling = {
     "event": "peaceful",
     "color": "blue",
     "photo": "calm",
-    "poem": ["Sonnet 74", "Juvenilia", "The Deserted Garden", "Ode on Solitude.", "Etude Realiste", "Not A Child", "A London Plane-Tree", "Speak Of The North! A Lonely Moor", "'Tis moonlight, summer moonlight", "Tall Nettles", "The words the happy say", "\"Hope\" is the thing with feathers"]
+    "poem": ["Sonnet 74", "Juvenilia", "The Deserted Garden", "Ode on Solitude.", "Etude Realiste", "Not A Child", "A London Plane-Tree", "Speak Of The North! A Lonely Moor", "'Tis moonlight, summer moonlight", "Tall Nettles", "The words the happy say", " is the thing with feathers"]
   },
   "loving": {
     "music": "romance",
