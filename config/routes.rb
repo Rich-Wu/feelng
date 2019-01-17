@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'spotify_users/create'
   get 'spotify_logins/create'
   root 'pages#home'
+  get '/test', to: 'pages#calendar'
   get '/mood', to: 'pages#results', as: 'mood'
   post '/mood', to: 'pages#results'
   get '/playback', to: 'pages#playback', as: 'playback'

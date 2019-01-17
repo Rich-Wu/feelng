@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     render 'home'
   end
 
+  def calendar
+  end
+
   def results
     if !params['mood']
       params['mood'] = 'spooky'
