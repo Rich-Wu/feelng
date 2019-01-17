@@ -357,7 +357,7 @@ def query_foursquare(query, location)
 end
 
 def query_unsplash(query, orientation)
-  # photo call for unsplash
+  # random photo call for unsplash
   curl = Curl::Easy.new
   curl.url = Curl::urlalize("https://api.unsplash.com/photos/random", params = {
     "client_id": ENV['UNSPLASH_ID'],
@@ -369,4 +369,38 @@ def query_unsplash(query, orientation)
   curl.perform
   data = JSON.parse(curl.body_str)
   return data
+end
+
+def photo_by_id(id)
+  # api call for specific photo
+  curl = Curl::Easy.new
+  curl.url = Curl::urlalize("https://api.unsplash.com/photos/#{id}", params = {
+    "client_id": ENV['UNSPLASH_ID'],
+    "Accept-Version": "v1"
+    })
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data
+end
+
+def poem_by_title(title)
+  # poem call for poetrydb
+  curl = Curl::Easy.new
+  curl.url = "http://poetrydb.org/title/#{title.gsub(" ","%20")}"
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data[0]
+end
+
+def event_by_id(id)
+  # event call for foursquare
+  curl = Curl::Easy.new
+  curl.url = Curl::urlalize("https://api.foursquare.com/v2/venues/#{id}", params = {
+    "client_id": ENV['FOURSQ_ID'],
+    "client_secret": ENV['FOURSQ_KEY'],
+    "v": "20180323"
+    })
+  curl.perform
+  data = JSON.parse(curl.body_str)
+  return data['response']
 end
