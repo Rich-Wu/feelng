@@ -11,7 +11,6 @@ body {
   display: inline-block;
   cursor: pointer;
   float: right;
-
 }
 
 .bar1, .bar2, .bar3 {
@@ -50,6 +49,13 @@ body {
 
 .drop {
   display: block;
+}
+
+.spotifyBtn {
+  position: relative;
+  left: 40%;
+  width: 20%;
+  top: .5em;
 }
 
 // MENU OVERLAY
@@ -125,8 +131,7 @@ body {
 
 // USER PROFILE
 .simple-calendar {
-  display: grid;
-  justify-content: right;
+  float: right;
   .calendar-heading {
     text-align: center;
     font-size: larger;
