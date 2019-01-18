@@ -1,6 +1,9 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Helvetica', sans-serif;
+}
 
 // MENU ICON
 .menu-container {
@@ -30,7 +33,7 @@
   top: 40px;
   display: none;
   z-index: 1;
-  min-width: 100px;
+  min-width: 125px;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
   0 11px 6px -7px rgba(43,43,43,0.1);
@@ -63,7 +66,7 @@
   transition: .5s;
 }
 
-.overlay-about, .overlay-login, .overlay-signup {
+.overlay-about, .overlay-signup {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
@@ -71,6 +74,27 @@
  position: relative;
  text-align: center;
  top: 10em;
+}
+
+.overlay-signup input {
+    margin: 1em;
+    border-radius: 5px;
+    padding: .5em 1.5em;
+    min-width: 75%;
+}
+
+.createBtn {
+  position: relative;
+  left: .5em;
+  background-color: whitesmoke;
+  border-color: transparent;
+  font-weight: bold;
+  font-size: smaller;
+  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
+  0 11px 6px -7px rgba(43,43,43,0.1);
+    &:hover {
+    opacity: .8;
+  }
 }
 
 .closebtn {
@@ -81,12 +105,81 @@
   font-size: 60px;
 }
 
-// @media screen and (max-width: 1066px) {
-//   .menu-content {
-//     font-size: 1.5em;
-//
-//   }
-// }
+@media only screen and (max-width: 376px) {
+  .menu-container {
+    float: none;
+      .menu-dropdown {
+      left: 0;
+      position: relative;
+      top: 0;
+      max-width: 50%;
+  }
+}
+  .overlay-signup {
+    margin-right: 10%;
+  }
+  .closebtn {
+    left: 85%;
+  }
+}
+
+// USER PROFILE
+.simple-calendar {
+  display: grid;
+  justify-content: center;
+  .calendar-heading {
+    text-align: center;
+    font-size: larger;
+  }
+  .table {
+    position: relative;
+    top: 1em;
+  }
+  .day {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 0 20px 20px 0;
+  }
+}
+
+.results-wrapper {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  grid-gap: 20px;
+  border-radius: 5px;
+  width: 40%;
+  left: 30%;
+  background-color: whitesmoke;
+  top: 3em;
+  grid-template: 100px / 100px 100px 100px;
+  box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
+  0 15px 6px -7px rgba(43,43,43,0.1);
+}
+
+.results-wrapper img {
+  height: 85%;
+}
+
+@media screen and (max-width: 390px) {
+  .simple-calendar {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    // right: 9%;
+      .day {
+      padding: 5px 20px 20px 0;
+  }
+ }
+  .results-wrapper {
+    left: 30%;
+    text-align: center;
+    grid-template: 30% / auto;
+      .results-wrapper img {
+        height: 100%;
+    }
+  }
+}
 
 // Take automatic top margin off html
 * {
@@ -109,6 +202,7 @@ body {
   background-attachment: fixed;
 }
 
+// EMOJI GRID
 h1 {
   font-size: 2.2rem;
 }

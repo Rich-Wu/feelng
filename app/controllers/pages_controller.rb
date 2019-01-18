@@ -6,7 +6,11 @@ class PagesController < ApplicationController
     render 'home'
   end
 
+  def calendar
+  end
+
   def results
+    @user = User.new
     @entry = Entry.new
     if !params['mood']
       params['mood'] = 'spooky'
