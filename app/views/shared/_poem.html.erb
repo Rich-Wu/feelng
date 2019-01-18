@@ -1,10 +1,10 @@
-<div class="feature" id="poem" style="background-color: <%=@photo['color']%>">
+<div class="feature" id="poem" style="border: 10px solid <%=@photo['color']%>" onclick="expand()">
   <h2>Read</h2>
   <h3><%= @poem['title'] %></h3>
   <h4><%= @poem['author'] %></h4>
-  <p>
     <% @poem['lines'].each do |line| %>
-      <%= line %>
+      <p><%= line %></p>
     <% end %>
-  </p>
 </div>
+
+<%= javascript_include_tag 'poem' %>
