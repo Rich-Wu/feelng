@@ -51,7 +51,19 @@
 
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
-<%= render 'shared/event', object: @event %>
+<%= render 'shared/event' %>
+
+<% if session[:id] %>
+  <%= form_for @entry, url: new_entry_path, remote: true, html: {class: "entry_form"} do |f| %>
+    <%= f.hidden_field :journal_id, value: User.find(session[:id]).journal.id %>
+    <%= f.hidden_field :mood, value: @mood %>
+    <%= f.hidden_field :photo, value: @photo['id'] %>
+    <%= f.hidden_field :poem, value: @poem['title'] %>
+    <%= f.hidden_field :event, value: @event['groups'][0]['items'][0]['venue']['id'] %>
+    <%= f.text_area :content, placeholder: "What are you Feelng?" %>
+    <%= f.submit :"Save this Mood" %>
+  <% end %>
+<% end %>
 
 <!-- SPOTIFY CONTROLLERS -->
 <div class="player">

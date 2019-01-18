@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def results
     @user = User.new
+    @entry = Entry.new
     if !params['mood']
       params['mood'] = 'spooky'
       params['coordinates'] = '40,-74'
@@ -18,11 +19,10 @@ class PagesController < ApplicationController
     @mood = params['mood']
     # photo API
     @photo = query_unsplash(mood(params['mood']),"landscape")
-    # color API
     # music API
-    # AUTHORIZE SPOTIFY HERE
 
     # poetry API
+    @poem = query_poetrydb(mood(params['mood']))
     # event API
     @event = query_foursquare(mood(params['mood']),params['coordinates'])
     render 'results'
