@@ -33,23 +33,14 @@
   <p id="album">Album: </p>
 </div>
 
-<h1>The Mood Is</h1>
-<%= image_tag("emojis/#{@mood}") %>
-<button id="prev">Previous</button>
-<button id="play">Play/Pause</button>
-<button id="next">Next</button>
-<p id="track_name">Track Name:</p>
-<p id="artist">Artist: </p>
-<p id="album">Album: </p>
-<img src="#" alt="Album Cover" id="album_cover">
-<p id="playlist_name"> <%= @playlist_name %> </p>
-<img src="<%=@playlist_img%>" alt="" id="playlist_img">
+<!-- <img src="#" alt="Album Cover" id="album_cover"> -->
+
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
 <script>
   //getting token and playlist uri from controller
   const playlist_uri = "<%=@playlist_uri%>";
   const token = "<%=current_spotify_user.access_token%>"
-  
+
   async function play (device_id,playlist) {
       return new Promise((resolve) => {
         fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
@@ -63,9 +54,9 @@
         }).then(resolve);
             });
   }
-  
+
   window.onSpotifyWebPlaybackSDKReady = () => {};
-  
+
   async function waitForSpotifyWebPlaybackSDKToLoad () {
     return new Promise(resolve => {
   if (window.Spotify) {
@@ -77,7 +68,7 @@
   }
     });
   };
-  
+
   async function waitUntilUserHasSelectedPlayer (sdk) {
     return new Promise(resolve => {
   let interval = setInterval(async () => {
@@ -89,16 +80,16 @@
   });
     });
   };
-  
+
   (async () => {
     const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
-  
+
     const sdk = new Player({
   name: "Feelng's Player",
   volume: 1.0,
   getOAuthToken: callback => { callback(token); }
     });
-  
+
     // Playback state has changed
     sdk.on("player_state_changed", state => {
   let {
@@ -114,14 +105,14 @@
                   images: album_images
               }
   } = state.track_window.current_track;
-  
+
   console.log(state);
   $('#track_name').text('Track Name: ' + track_name);
           $('#artist').text('Artist: ' + artists[0].name);
           $('#album').text('Album: ' + album_name);
           $('#album_cover').attr('src', album_images[0].url);
     });
-  
+
      document.getElementById("prev").addEventListener("click", async function() {
           await sdk.previousTrack();
       });
@@ -131,25 +122,25 @@
       document.getElementById("next").addEventListener("click", async function() {
           await sdk.nextTrack();
       });
-  
+
     // Ready
     sdk.on('ready', data => {
   let { device_id } = data;
-  
+
   // Play a track using our new device ID
   console.log('Ready with Device ID', device_id);
   play(device_id,playlist_uri);
     });
-  
+
     let connected = await sdk.connect();
     if (connected) {
   console.log("Waiting for player to be selected ...");
   let state = await waitUntilUserHasSelectedPlayer(sdk);
   console.log("Player has been selected!");
-  
+
   await sdk.resume();
-  
-  
+
+
   let {
     id,
     uri: track_uri,
@@ -162,7 +153,7 @@
       images: album_images
     }
   } = state.track_window.current_track;
-  
+
   console.log(`You're listening to ${track_name} by ${artists[0].name}!`);
     } else {
   console.error("Failed to connect Player");
