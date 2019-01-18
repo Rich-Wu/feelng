@@ -1,55 +1,12 @@
 <div class="background" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<%=@photo['urls']['full']%>);">
 </div>
 
-<!-- MENU SECTION  -->
-<div class="menu-container" onclick="openMenu()">
-  <div class="bar1" style="background-color: <%=@photo['color']%>"></div>
-  <div class="bar2" style="background-color: <%=@photo['color']%>"></div>
-  <div class="bar3" style="background-color: <%=@photo['color']%>"></div>
-
-  <div id="menu-content" class="menu-dropdown" style="background-color: <%=@photo['color']%>">
-    <div onclick="openOverlay1()">About</div>
-    <div><%= link_to "Home", root_path %></div>
-    <% if !session[:id] %>
-      <div><%= link_to "Login", login_path, method: :post %></div>
-    <% else %>
-      <%= link_to "Profile", "/profile" %>
-      <%= link_to "Logout", logout_path, method: :post %>
-    <% end %>
-  </div>
-</div>
-
 <!-- SPOTIFY CONNECT BUTTON -->
 <div>
   <% if !session[:id] %>
     <%= link_to image_tag("https://static1.squarespace.com/static/59a6fd41bebafb8b3f420544/t/5c154a69575d1f2511f05f88/1523895598897/", :class => 'spotifyBtn'), spotify_logins_create_path %>
   <% end %>
 </div>
-
-<!-- MENU OVERLAYS -->
-<div id="overlay1" class="overlay-container" style="background-color: <%=@photo['color']%>">
-  <div class="closebtn" onclick="closeOverlay1()">&times;</div>
-  <div class="overlay-about">
-    <p>'Feeln' is your go-to content generator app based...you guessed it! Your current mood!<br>
-        Select an emoji and watch the magic to happen!
-    </p>
-  </div>
-</div>
-
-<!-- <div id="overlay2" class="overlay-container" style="background-color: <%#=@photo['color']%>">
-  <div class="closebtn" onclick="closeOverlay2()">&times;</div>
-  <div class="overlay-signup">
-    <%#= form_for @user, remote:true do |f| %>
-      <h2>Signup</h2>
-      <%#= f.email_field :email, placeholder: "Email (e.g. example@hotmail.com)" %><br>
-      <%#= f.text_field :username, placeholder: "Username" %><br>
-      <%#= f.text_field :first_name, placeholder: "First Name" %><br>
-      <%#= f.text_field :last_name, placeholder: "Last Name" %><br>
-      <%#= f.password_field :password, placeholder: "Password (min. 8 characters)" %><br>
-      <%#= f.submit("Create", {:class => 'createBtn'}) %>
-    <%# end %>
-  </div>
-</div> -->
 
 <!-- RESULTS HEADER & MOOD ELEMENTS -->
 <div class="header">

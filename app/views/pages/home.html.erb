@@ -1,24 +1,7 @@
-<!-- MENU SECTION  -->
-<div class="menu-container" onclick="openMenu()">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-
-  <div id="menu-content" class="menu-dropdown">
-    <div onclick="openOverlay1()">About</div>
-    <% if !session[:id] %>
-      <div><%= link_to "Login", "spotify_users/create" %></div>
-    <% else %>
-      <%= link_to "Profile", "/profile" %>
-      <%= link_to "Logout", logout_path, method: :post %>
-    <% end %>
-  </div>
-</div>
-
 <!-- SPOTIFY CONNECT BUTTON -->
 <div>
   <% if !session[:id] %>
-  <%= link_to image_tag("https://static1.squarespace.com/static/59a6fd41bebafb8b3f420544/t/5c154a69575d1f2511f05f88/1523895598897/", :class => 'spotifyBtn'), spotify_logins_create_path %>
+    <%= link_to image_tag("https://static1.squarespace.com/static/59a6fd41bebafb8b3f420544/t/5c154a69575d1f2511f05f88/1523895598897/", :class => 'spotifyBtn'), spotify_logins_create_path %>
   <% end %>
 </div>
 

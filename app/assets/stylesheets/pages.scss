@@ -32,7 +32,8 @@ body {
   top: 40px;
   display: none;
   z-index: 1;
-  min-width: 125px;
+  min-width: 170px;
+  text-align: center;
   box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
   0 11px 6px -7px rgba(43,43,43,0.1);
 }
@@ -88,7 +89,7 @@ body {
 
 .overlay-about h3, ol {
   position: relative;
-  top: 1em;
+  top: 1.5em;
   text-align: left;
 }
 
@@ -131,11 +132,17 @@ body {
       max-width: 50%;
   }
 }
-  .overlay-signup {
-    margin-right: 10%;
+  .overlay-about h3, ol {
+    margin-top: 15%;
   }
   .closebtn {
     left: 85%;
+  }
+  .spotifyBtn {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    top: .5em;
   }
 }
 

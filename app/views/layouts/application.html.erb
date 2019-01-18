@@ -15,6 +15,24 @@
   </head>
 
   <body>
+    <!-- MENU SECTION  -->
+    <div class="menu-container" onclick="openMenu()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+
+      <div id="menu-content" class="menu-dropdown">
+        <div onclick="openOverlay1()">About</div>
+        <div><%= link_to "Home", root_path %></div>
+        <% if !session[:id] %>
+          <div><%= link_to "Connect With Spotify", spotify_logins_create_path %></div>
+        <% else %>
+          <%= link_to "My Journal", "/profile" %>
+          <%= link_to "Logout", logout_path, method: :post %>
+        <% end %>
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>
