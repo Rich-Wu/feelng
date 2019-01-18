@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :refresh_token
   helper ApplicationHelper
   def home
-    #@user = User.new
+    @user = User.new
     render 'home'
   end
 
