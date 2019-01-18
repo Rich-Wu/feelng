@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
+    @user.journal = Journal.new
+    @user.journal.save
     rescue ActiveRecord::RecordNotUnique
       p "There is already a record of this user"
     ensure
