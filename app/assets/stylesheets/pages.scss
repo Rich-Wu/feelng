@@ -33,7 +33,6 @@ body {
   display: none;
   z-index: 1;
   min-width: 125px;
-  border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
   0 11px 6px -7px rgba(43,43,43,0.1);
 }
@@ -42,6 +41,11 @@ body {
   display: block;
   padding: .7em .2em;
   text-decoration: none;
+    a {
+      display: block;
+      text-decoration: none;
+      color: black;
+    }
     &:hover {
     background-color: whitesmoke;
   }
@@ -72,7 +76,7 @@ body {
   transition: .5s;
 }
 
-.overlay-about, .overlay-signup {
+.overlay-about {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
@@ -82,12 +86,18 @@ body {
  top: 10em;
 }
 
-.overlay-signup input {
-    margin: 1em;
-    border-radius: 5px;
-    padding: .5em 1.5em;
-    min-width: 75%;
+.overlay-about h3, ol {
+  position: relative;
+  top: 1em;
+  text-align: left;
 }
+
+// .overlay-signup input {
+//     margin: 1em;
+//     border-radius: 5px;
+//     padding: .5em 1.5em;
+//     min-width: 75%;
+// }
 
 .createBtn {
   position: relative;
