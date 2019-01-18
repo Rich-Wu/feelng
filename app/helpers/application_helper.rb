@@ -6,4 +6,8 @@ module ApplicationHelper
             @spotify_user = nil
         end
     end
+
+    def get_playlist_by_id(playlist_id)
+        
+    end
 end

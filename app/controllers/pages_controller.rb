@@ -71,6 +71,7 @@ class PagesController < ApplicationController
     @playlist_name = @playlist["name"]
     @playlist_uri = @playlist["uri"]
     @playlist_id = @playlist["id"]
+  
     
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
