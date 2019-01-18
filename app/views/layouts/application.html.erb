@@ -16,8 +16,7 @@
       <div id="menu-content" class="menu-dropdown" style="">
         <div onclick="openOverlay1()">About</div>
         <% if !session[:id] %>
-          <div onclick="openOverlay2()">Signup</div>
-          <div onclick="">Spotify Authentication</div>
+          <%= link_to "Login with Spotify", login_path %>
         <% else %>
           <%= link_to "My Journal", "/journal" %>
           <%= link_to "Logout", logout_path, method: :post %>

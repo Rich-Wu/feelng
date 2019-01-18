@@ -218,7 +218,7 @@ $feeling = {
     "poem": ["Winter:abs", "Blow, Blow, Thou Winter Wind", "Sonnet 30 (Fire And Ice)", "But These Things Also"]
   },
   "horrified": {
-    "music": "spooky",
+    "music": "horror",
     "event": "horror",
     "color": "black",
     "photo": "spooky",
@@ -358,6 +358,7 @@ def query_poetrydb(mood)
     title = title.call
   end
   curl.url = "http://poetrydb.org/title/#{title.gsub(" ","%20")}"
+  p curl.url
   curl.perform
   data = JSON.parse(curl.body_str)
   return data[0]

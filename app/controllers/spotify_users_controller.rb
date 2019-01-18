@@ -32,9 +32,10 @@ class SpotifyUsersController < ApplicationController
         uri: user_params["uri"])
       @spotify_user.update(access_token: oauth_body["access_token"], refresh_token: oauth_body["refresh_token"])
       session[:spotify_user] = @spotify_user.username
-      session[:id] = @spotify_user.id
-      @spotify_user.journal = Journal.new
-      @spotify_user.journal.save
+      if !Journal.find_by(spotify_user_id: @spotify_user.username)
+        @spotify_user.journal = Journal.new(spotify_user_id: @spotify_user.username)
+        @spotify_user.journal.save
+      end
       redirect_to root_url
     end
   end

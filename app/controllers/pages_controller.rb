@@ -16,7 +16,6 @@ class PagesController < ApplicationController
     @mood = params['mood']
     # photo API
     @photo = query_unsplash(mood(params['mood']),"landscape")
-    # music API
 
     #@photo = query_unsplash(mood(params['mood']),"portrait")
     # color API
@@ -32,12 +31,12 @@ class PagesController < ApplicationController
     body = {
         "grant_type" => "client_credentials"
     }
-    
+
     headers = {
         "Authorization" => "Basic #{enc}"
     }
     # make the post request with required body and header parameters
-    response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body, :headers => headers)     
+    response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body, :headers => headers)
     body = JSON.parse(response.body)
     # set the access token for future calls
     @client_access_token = body["access_token"]
@@ -54,10 +53,10 @@ class PagesController < ApplicationController
     search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
     body = JSON.parse(search_response.body)
     items = body["playlists"]["items"]
-    
+
     playlists = []
 
-    items.each do |item|  
+    items.each do |item|
       # Saving IDs to save space
       playlists << item
     end
@@ -68,7 +67,6 @@ class PagesController < ApplicationController
     @playlist_name = @playlist["name"]
     @playlist_uri = @playlist["uri"]
     @playlist_id = @playlist["id"]
-    
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
     # event API
