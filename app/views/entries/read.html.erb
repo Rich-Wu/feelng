@@ -1,7 +1,7 @@
 <div class="background" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<%=@photo['urls']['full']%>);">
 </div>
 <div class="header">
-  <h1>The Mood Is: <%= image_tag("emojis/#{@mood}") %></h1>
+  <h1>The Mood was <%= image_tag("emojis/#{@mood}") %> on <%= @time.strftime("%D at %I:%M%p")%></h1>
 </div>
 
 <%= render 'shared/poem' %>

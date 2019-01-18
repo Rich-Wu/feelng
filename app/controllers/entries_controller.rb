@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
   def read
     entry = Entry.find(params[:id])
     @mood = entry['mood']
+    @time = entry['created_at']
     # photo API
     @photo = photo_by_id(entry['photo'])
     # music API
