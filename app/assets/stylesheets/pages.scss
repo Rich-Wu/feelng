@@ -7,11 +7,12 @@ body {
 
 // MENU ICON
 .menu-container {
-  position: relative;
+  position: absolute;
   display: inline-block;
   cursor: pointer;
   float: right;
-
+  top: 5%;
+  right: 5%;
 }
 
 .bar1, .bar2, .bar3 {
@@ -251,23 +252,27 @@ h1 {
   #entry_content {
     width: 720px;
     height: 280px;
+    font-size: 20px;
   }
 }
 
-.header {
+#header {
   position: fixed;
   top: 0;
   color: white;
   padding: 3%;
   z-index: 2;
   h1 {
+    display: inline;
     text-shadow: 5px 5px black;
+    transition: opacity 1s;
   }
   img {
     width: 65px;
     position: relative;
     top: 10px;
     padding-left: 20px;
+    transition: opacity 1s;
   }
 }
 
