@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(1)
+    @user = User.find(session[:id])
   end
 
   def destroy
-    @user = User.find(1)
+    @user = User.find(session[:id])
     respond_to do |format|
       format.js
     end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/journal', to: 'journals#view', as: 'journal'
   post '/logout', to: 'sessions#logout', as: 'logout'
   post '/login', to: 'sessions#login', as: 'login'
   post '/users', to: 'users#create'

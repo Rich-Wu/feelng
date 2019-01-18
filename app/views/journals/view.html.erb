@@ -1,0 +1,14 @@
+<div class="profile-container">
+
+  <%= week_calendar(attribute: :created_at, events: @entries) do |date, entries| %>
+    <%= date %><br>
+    <% entries.each do |entry| %>
+      <%= image_tag("emojis/#{entry.mood}") %>
+    <% end %>
+  <% end %>
+
+  <div class="date-header">
+    <h2 style="text-align:center;">Date</h2>
+  </div>
+
+</div>
