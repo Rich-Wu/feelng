@@ -29,8 +29,18 @@
     <div id="overlay1" class="overlay-container" style="">
       <div class="closebtn" onclick="closeOverlay1()">&times;</div>
       <div class="overlay-about">
-        <p>'Feeln' is your go-to content generator app based...you guessed it! Your current mood!<br>
+        <p>'Feelng' is your go-to content generator app based on your current mood.<br>
             Select an emoji and watch the magic to happen!
+
+            Feelng uses the following APIs to set the mood:<br>
+            Poetry: <a href="http://poetrydb.org/index.html">PoetryDB</a><br>
+            Music: <a href="https://developer.spotify.com/documentation/web-api/">Spotify</a><br>
+            Events/Attractions: <a href="https://developer.foursquare.com/">Foursquare</a><br>
+            Images: <a href="https://unsplash.com/developers">Unsplash</a><br>
+            <% if request.path == '/mood' %>
+            The image on this page is by <a href="<%=@photo['user']['links']['html']%>"><%= @photo['user']['name'] %></a>
+            <% end %>
+
         </p>
       </div>
     </div>
