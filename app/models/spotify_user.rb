@@ -1,4 +1,5 @@
 class SpotifyUser < ApplicationRecord
+  has_one :journal
 
     def access_token_expired?
         (Time.now - self.updated_at) > 3300

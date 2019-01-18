@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_193131) do
+ActiveRecord::Schema.define(version: 2019_01_18_203703) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "journal_id"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2019_01_17_193131) do
   end
 
   create_table "journals", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "spotify_user_id"
   end
 
   create_table "spotify_users", force: :cascade do |t|
