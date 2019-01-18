@@ -8,6 +8,19 @@ class EntriesController < ApplicationController
   end
 
   def read
+    entry = Entry.find(params[:id])
+    @mood = entry['mood']
+    @time = entry['created_at']
+    # photo API
+    @photo = photo_by_id(entry['photo'])
+    # music API
+
+    # poetry API
+    @poem = poem_by_title(entry['poem'])
+    # event API
+    @event = event_by_id(entry['event'])
+    # journal content
+    @content = entry['content']
   end
 
   def delete
