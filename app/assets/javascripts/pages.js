@@ -1,11 +1,14 @@
 var menu_content = document.getElementById('menu-content');
 var menu_container = document.getElementsByClassName('menu-container')[0];
 var about_overlay = document.getElementById('overlay1');
-
+document.get
 
 // DISPLAY POPUP BOX
 function popUp(){
- var userConfirm = confirm("Welcome to Feelng!\nConnect to Spotify now for playback music? Connect later by selecting '\ Connect with Spotify\ ' in the dropdown menu.");  
+ var userConfirm = confirm("Welcome to Feelng!\nWould you like to connect to Spotify for playback music? You can always connect later by selecting '\Connect with Spotify\' in the dropdown menu.");
+   if (userConfirm == true) {
+    menu_content.classList.toggle('drop');
+  }
 }
 
 // DISPLAYS MENU CONTENT
