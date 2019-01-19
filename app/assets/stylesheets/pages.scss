@@ -7,16 +7,18 @@ body {
 
 // MENU ICON
 .menu-container {
-  position: relative;
+  position: absolute;
   display: inline-block;
   cursor: pointer;
   float: right;
+  top: 5%;
+  right: 5%;
 }
 
 .bar1, .bar2, .bar3 {
-  width: 25px;
-  height: 3px;
-  margin: 3px 0;
+  width: 50px;
+  height: 5px;
+  margin: 10px 0;
   background-color: black;
   transition: .5s;
   position: relative;
@@ -273,31 +275,57 @@ h1 {
   #entry_content {
     width: 720px;
     height: 280px;
+    font-size: 20px;
   }
 }
 
-.header {
+#header {
   position: fixed;
   top: 0;
   color: white;
   padding: 3%;
   z-index: 2;
   h1 {
+    display: inline;
     text-shadow: 5px 5px black;
+    transition: opacity 1s;
   }
   img {
     width: 65px;
     position: relative;
     top: 10px;
     padding-left: 20px;
+    transition: opacity 1s;
   }
 }
 
 @media only screen and (max-width: 600px) {
-#entry_content {
-  height: 20vh;
-  width: 80vw;
-}
+  #entry_content {
+    height: 20vh;
+    width: 80vw;
+  }
+  .menu-container {
+    top: 2%;
+    right: 5%;
+  }
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 4px;
+    margin: 5px 0;
+    background-color: black;
+    transition: .5s;
+    position: relative;
+    right: 10px;
+    top: 10px;
+  }
+  #main {
+    text-align: left;
+    margin-left: 5%;
+    padding: 3vh 0;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 
 #entry_content {

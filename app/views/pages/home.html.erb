@@ -1,45 +1,7 @@
-<!-- SPOTIFY CONNECT BUTTON -->
-<div>
-  <% if !session[:id] %>
-    <%= link_to image_tag("https://static1.squarespace.com/static/59a6fd41bebafb8b3f420544/t/5c154a69575d1f2511f05f88/1523895598897/", :class => 'spotifyBtn'), spotify_logins_create_path %>
-  <% end %>
-</div>
-
-<!-- MENU OVERLAY -->
-<div id="overlay1" class="overlay-container">
-  <div class="closebtn" onclick="closeOverlay1()">&times;</div>
-  <div class="overlay-about">
-    <h4>
-      'Feelng' is your go-to content generator app based on...you guessed it - your current mood!<br>
-       Select an emoji and watch the magic happen!
-    </h4>
-    <h3>Steps:</h3>
-    <ol>
-      <li>Connect using your Spotify account</li>
-      <li>Pick a mood</li>
-    </ol>
-  </div>
-</div>
-
-
-<!-- <div id="overlay2" class="overlay-container">
-  <div class="closebtn" onclick="closeOverlay2()">&times;</div>
-  <div class="overlay-signup">
-    <%#= form_for @user, remote:true do |f| %>
-      <h2>Signup</h2>
-      <%#= f.email_field :email, placeholder: "Email (e.g. example@hotmail.com)" %><br>
-      <%#= f.text_field :username, placeholder: "Username" %><br>
-      <%#= f.text_field :first_name, placeholder: "First Name" %><br>
-      <%#= f.text_field :last_name, placeholder: "Last Name" %><br>
-      <%#= f.password_field :password, placeholder: "Password (min. 8 characters)" %><br>
-      <%#= f.submit("Create", {:class => 'createBtn'}) %>
-    <%# end %>
-  </div>
-</div> -->
-
+<body onload="popUp()">
 <!-- EMOJI GRID -->
 <h1 id="main">What's The Mood?</h1>
-<!-- <h3>Welcome <%=current_spotify_user.username if current_spotify_user%></h3> -->
+
 <%= form_tag("/mood", method: "post", class: "mood") do %>
   <div class='container'>
     <%= hidden_field_tag 'coordinates' %>
@@ -55,5 +17,7 @@
   </div>
   <%= submit_tag('Submit') %>
 <% end %>
+
+</body>
 
 <%= javascript_include_tag 'emoji-grid', 'pages' %>
