@@ -20,7 +20,7 @@ body {
   height: 5px;
   margin: 10px 0;
   background-color: black;
-  transition: .5s;
+  // transition: .5s;
   position: relative;
   right: 10px;
   top: 10px;
@@ -95,13 +95,6 @@ body {
   text-align: left;
 }
 
-// .overlay-signup input {
-//     margin: 1em;
-//     border-radius: 5px;
-//     padding: .5em 1.5em;
-//     min-width: 75%;
-// }
-
 .createBtn {
   position: relative;
   left: .5em;
@@ -140,17 +133,14 @@ body {
   .closebtn {
     left: 85%;
   }
-  .spotifyBtn {
-    position: relative;
-    left: 25%;
-    width: 50%;
-    top: .5em;
-  }
 }
 
 // USER PROFILE
 .simple-calendar {
-  float: right;
+  display: grid;
+  justify-content: center;
+  position: relative;
+  top: 3.5em;
   .calendar-heading {
     text-align: center;
     font-size: larger;
@@ -158,12 +148,20 @@ body {
   .table {
     position: relative;
     top: 1em;
+    box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
+    0 15px 6px -7px rgba(43,43,43,0.1);
   }
   .day {
     background-color: whitesmoke;
     border-radius: 5px;
-    padding: 0 20px 20px 0;
+    padding: 0 55px 55px 0;
   }
+}
+
+.profile-container h2 {
+  text-align: center;
+  text-shadow: 3px 3px #ffcc33;
+  font-size: xx-large;
 }
 
 .results-wrapper {
@@ -190,7 +188,7 @@ body {
     display: grid;
     justify-content: center;
     position: relative;
-    // right: 9%;
+    top: 5em;
       .day {
       padding: 5px 20px 20px 0;
   }
