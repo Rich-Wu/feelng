@@ -10,32 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_200034) do
+ActiveRecord::Schema.define(version: 2019_01_20_223753) do
 
   create_table "entries", force: :cascade do |t|
-    t.integer "journal_id"
-    t.string "event"
-    t.string "content"
-    t.string "poem"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "photo"
     t.string "mood"
-    t.string "playlist"
-  end
-
-  create_table "journals", force: :cascade do |t|
-    t.integer "user_id"
+    t.text "photo"
+    t.text "playlist"
+    t.text "event"
+    t.text "poem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
     t.integer "spotify_user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["spotify_user_id"], name: "index_messages_on_spotify_user_id"
   end
 
   create_table "spotify_users", force: :cascade do |t|

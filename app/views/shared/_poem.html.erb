@@ -5,6 +5,19 @@
     <% @poem['lines'].each do |line| %>
       <p><%= line %></p>
     <% end %>
+   <%= form_for @entry, url: new_entry_path(@entry) do |f| %>
+  <%if current_spotify_user%>
+      <%= f.hidden_field :mood, :value=>@mood%>
+  <%= f.hidden_field :photo, :value=>JSON.generate(@photo)%>
+  <%if current_spotify_user%>
+    <%= f.hidden_field :playlist, :value=>JSON.generate(@playlist)%>
+>
+  <%end%>
+  <%= f.hidden_field :event, :value=>JSON.generate(@event)%>
+  <%= f.hidden_field :poem, :value=>JSON.generate(@poem)%>
+  <%= f.submit "Save Mood Entry"%>
+<%end %>
+  <%end%>
 </div>
 
 <%= javascript_include_tag 'poem' %>

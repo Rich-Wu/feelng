@@ -7,9 +7,11 @@
   <%= image_tag("emojis/#{@mood}") %>
 </div>
 
+
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
 <%= render 'shared/event' %>
+
 
 
 <!-- SPOTIFY CONTROLLERS -->
@@ -23,14 +25,16 @@
     <p id="album">Album: </p>
   </div>
 <%else%>
-  <!-- OLIVIA STYLING HERE -->
+ 
 <%end%>
 
 
 <!-- <img src="#" alt="Album Cover" id="album_cover"> -->
 <% if current_spotify_user%>
+  
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
+  console.log("We in it boys")
     //getting token and playlist uri from controller
     const playlist_uri = "<%=@playlist_uri%>";
     const token = "<%=current_spotify_user.access_token%>"
