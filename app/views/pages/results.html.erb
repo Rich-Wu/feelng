@@ -11,6 +11,17 @@
 <%= render 'shared/music' %>
 <%= render 'shared/event' %>
 
+<div class="chat-popup" id="myForm">
+  <form action="" class="form-container" style="border: 10px solid <%=@photo['color']%>">
+    <h1>Talk</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+  </form>
+</div>
+
 <!-- SPOTIFY CONTROLLERS -->
 <div class="player">
   <button id="prev"><i class="fas fa-step-backward"></i></button>
@@ -96,8 +107,8 @@
 
   console.log(state);
   $('#track_name').text('Track Name: ' + track_name);
-          $('#artist').text('Artist: ' + artists[0].name);
-          $('#album').text('Album: ' + album_name);
+          $('#artist').text('  |  Artist: ' + artists[0].name);
+          $('#album').text('  |  Album: ' + album_name);
           $('#album_cover').attr('src', album_images[0].url);
     });
 
