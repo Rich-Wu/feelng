@@ -8,6 +8,15 @@ module ApplicationHelper
     end
 
     def get_playlist_by_id(playlist_id)
-        
+        query = {
+            "q" => music(mood(params['mood'])),
+            "type" => "playlist",
+            "limit"=> 50
+          }
+      
+          user_headers = {
+            "Authorization" => "Bearer #{helpers.current_spotify_user.access_token}"
+          }
+          search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
     end
 end
