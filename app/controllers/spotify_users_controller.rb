@@ -1,5 +1,5 @@
 class SpotifyUsersController < ApplicationController
-
+  before_action :set_user, only: [:view, :logout]
   def create
     if params[:error]
       # If there's an error/denial then redirect to root for now
@@ -37,11 +37,16 @@ class SpotifyUsersController < ApplicationController
   end
 
   def view
-    @spotify_user = SpotifyUser.find(session[:spotify_user])
+
   end
 
   def logout
     session[:spotify_user] = nil
     redirect_to root_path
+  end
+
+  private
+  def set_user
+    @spotify_user = SpotifyUser.find_by(username: session[:spotify_user])
   end
 end
