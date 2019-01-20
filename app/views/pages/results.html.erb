@@ -11,23 +11,11 @@
 <%= render 'shared/music' %>
 <%= render 'shared/event' %>
 
-<% if session[:id] %>
-  <%= form_for @entry, url: new_entry_path, remote: true, html: {class: "entry_form"} do |f| %>
-    <%= f.hidden_field :journal_id, value: User.find(session[:id]).journal.id %>
-    <%= f.hidden_field :mood, value: @mood %>
-    <%= f.hidden_field :photo, value: @photo['id'] %>
-    <%= f.hidden_field :poem, value: @poem['title'] %>
-    <%= f.hidden_field :event, value: @event['groups'][0]['items'][0]['venue']['id'] %>
-    <%= f.text_area :content, placeholder: "What are you Feelng?" %>
-    <%= f.submit :"Save this Mood" %>
-  <% end %>
-<% end %>
-
 <!-- SPOTIFY CONTROLLERS -->
 <div class="player">
-  <button id="prev">Previous</button>
-  <button id="play">Play/Pause</button>
-  <button id="next">Next</button>
+  <button id="prev"><i class="fas fa-step-backward"></i></button>
+  <button id="play"><i class="fas fa-play"></i></button>
+  <button id="next"><i class="fas fa-step-forward"></i></button>
   <p id="track_name">Track Name:</p>
   <p id="artist">Artist: </p>
   <p id="album">Album: </p>

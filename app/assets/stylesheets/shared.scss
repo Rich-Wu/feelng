@@ -6,6 +6,7 @@
   h2 {
     color: white;
     text-shadow: 3px 3px black;
+    margin: 2% 0;
   }
   h3, h4, p {
     color: black;
@@ -22,6 +23,16 @@
   left: 47vw;
   img {
     width: 100%;
+  }
+  a {
+    color: rgb(58, 125, 41);
+    &:visited {
+      color: rgb(58, 125, 41);
+    }
+  }
+  p {
+    text-align: center;
+    margin-top: 10%;
   }
 }
 
@@ -74,5 +85,23 @@
   }
   .feature {
     min-height: 20vh;
+  }
+}
+
+.overlay-about {
+  width: 80%;
+  margin: 20% auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  span {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 3px 3px black;
+    font-weight: bold;
+  }
+  h2 {
+    margin: 2% 0;
   }
 }
