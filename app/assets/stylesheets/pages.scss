@@ -164,23 +164,27 @@ body {
   font-size: xx-large;
 }
 
-.results-wrapper {
+.table-wrapper {
   display: grid;
   justify-content: center;
   position: relative;
-  grid-gap: 20px;
-  border-radius: 5px;
-  width: 40%;
-  left: 30%;
-  background-color: whitesmoke;
-  top: 3em;
-  grid-template: 100px / 100px 100px 100px;
-  box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
-  0 15px 6px -7px rgba(43,43,43,0.1);
+  width: 95%;
+  top: 5em;
 }
 
-.results-wrapper img {
-  height: 85%;
+.mood-table {
+  width: 150%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
+  0 13px 6px -7px rgba(43,43,43,0.1);
+  border-collapse: collapse;
+}
+
+.rows, td, th {
+  border-color: black;
+  padding: 10px;
+  text-align: left;
+
 }
 
 @media screen and (max-width: 390px) {

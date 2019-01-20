@@ -36,6 +36,10 @@ class SpotifyUsersController < ApplicationController
     end
   end
 
+  def view
+    @spotify_user = SpotifyUser.find(session[:spotify_user])
+  end
+
   def logout
     session[:spotify_user] = nil
     redirect_to root_path
