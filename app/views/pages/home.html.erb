@@ -1,3 +1,7 @@
+<% if !session[:spotify_user] %>
+  <body onload="popUp()">
+<% end %>
+
 <!-- EMOJI GRID -->
 <h1 id="main">What's The Mood?</h1>
 
@@ -17,5 +21,6 @@
   <%= submit_tag('Submit') %>
 <% end %>
 
+</body>
 
 <%= javascript_include_tag 'emoji-grid', 'pages' %>

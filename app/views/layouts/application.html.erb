@@ -15,13 +15,11 @@
       <div id="menu-content" class="menu-dropdown" style="">
         <div onclick="openOverlay1()">About</div>
         <div><%= link_to "Home", root_path %></div>
-        <% if !session[:id] %>
-        <div>
-          <%= link_to "Connect With Spotify", spotify_logins_create_path %>
-        </div>
+        <% if !session[:spotify_user] %>
+        <div><%= link_to "Connect With Spotify", spotify_logins_create_path %></div>
         <% else %>
-          <%= link_to "Profile", "/profile" %>
-          <%= link_to "Logout", logout_path, method: :post %>
+        <div><%= link_to "Profile", "/profile" %></div>
+        <div><%= link_to "Logout", logout_path, method: :post %></div>
         <% end %>
       </div>
     </div>

@@ -35,4 +35,9 @@ class SpotifyUsersController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def logout
+    session[:spotify_user] = nil
+    redirect_to root_path
+  end
 end
