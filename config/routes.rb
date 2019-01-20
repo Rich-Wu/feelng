@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/index'
+  get 'chat_rooms/new'
+  get 'chat_rooms/create'
   post '/logout', to: 'sessions#logout', as: 'logout'
   post '/login', to: 'sessions#login', as: 'login'
   post '/users', to: 'users#create'
@@ -14,5 +17,7 @@ Rails.application.routes.draw do
   get '/mood', to: 'pages#results', as: 'mood'
   post '/mood', to: 'pages#results'
   get '/playback', to: 'pages#playback', as: 'playback'
+  resources :chat_rooms, only: [:new, :create, :show, :index]
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_193131) do
+ActiveRecord::Schema.define(version: 2019_01_20_190301) do
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "title"
+    t.integer "spotify_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spotify_user_id"], name: "index_chat_rooms_on_spotify_user_id"
+  end
 
   create_table "entries", force: :cascade do |t|
     t.integer "journal_id"
@@ -28,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_01_17_193131) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.integer "chat_room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "spotify_users", force: :cascade do |t|
