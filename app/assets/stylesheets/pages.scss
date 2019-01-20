@@ -173,18 +173,17 @@ body {
 }
 
 .mood-table {
-  width: 150%;
+  width: 130%;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
   0 13px 6px -7px rgba(43,43,43,0.1);
-  border-collapse: collapse;
+  // border-collapse: collapse;
 }
 
 .rows, td, th {
   border-color: black;
   padding: 10px;
   text-align: left;
-
 }
 
 @media screen and (max-width: 390px) {
