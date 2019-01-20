@@ -67,7 +67,7 @@ body {
   transition: .5s;
 }
 
-.overlay-about, .overlay-signup {
+.overlay-signup {
  display: grid;
  justify-content: center;
  grid-template: 20px 20px / auto;
@@ -218,9 +218,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   text-align: center;
-  grid-row-gap: 10px;
+  grid-row-gap: 5px;
   img {
-    height: 50px;
+    height: 60px;
     &:hover {
       transform: scale(1.1);
     }
@@ -342,7 +342,7 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
+    margin-top: 3vh;
     padding: 1% 2%;
     box-shadow: 3px 3px gray;
   }

@@ -1,11 +1,12 @@
 .feature {
   position: absolute;
-  padding: 3%;
+  padding: 2%;
   top: 20vh;
   background-color: rgba(255, 255, 255, 0.7);
   h2 {
     color: white;
     text-shadow: 3px 3px black;
+    margin: 2% 0;
   }
   h3, h4, p {
     color: black;
@@ -13,20 +14,33 @@
 }
 
 #poem {
-  left: 5vw;
+  left: 3%;
   height: 60vh;
   overflow: scroll;
 }
 
 #music {
-  left: 47vw;
+  left: 44vw;
   img {
-    width: 100%;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  a {
+    color: rgb(58, 125, 41);
+    &:visited {
+      color: rgb(58, 125, 41);
+    }
+  }
+  p {
+    text-align: center;
+    margin-top: 10%;
   }
 }
 
 #event {
-  left: 70vw;
+  left: 44vw;
 }
 
 .player {
@@ -57,6 +71,15 @@
   #poem {
     margin-top: 17vh;
   }
+  .chat-popup {
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    width: 88vw;
+  }
+  .form-container {
+    width: 78vw;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -67,12 +90,32 @@
 
   #music {
     width: 15vw;
+    top: 20vh;
   }
 
   #event {
-    width: 20vw;
+    width: 15vw;
+    top: 60vh;
   }
   .feature {
     min-height: 20vh;
+  }
+}
+
+.overlay-about {
+  width: 80%;
+  margin: 20% auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  span {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 3px 3px black;
+    font-weight: bold;
+  }
+  h2 {
+    margin: 2% 0;
   }
 }
