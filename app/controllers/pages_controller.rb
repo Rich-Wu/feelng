@@ -24,7 +24,6 @@ class PagesController < ApplicationController
     # color API
 
     # music API
-<<<<<<< HEAD
     id = ENV["SPOTIFY_ID"]
     secret = ENV["SPOTIFY_SECRET"]
     credentials = "#{id}:#{secret}"
@@ -63,7 +62,7 @@ class PagesController < ApplicationController
     items.each do |item|
       # Saving IDs to save space
       playlists << item
-=======
+
     if helpers.current_spotify_user
       id = ENV["SPOTIFY_ID"]
       secret = ENV["SPOTIFY_SECRET"]
@@ -111,13 +110,12 @@ class PagesController < ApplicationController
       @playlist_name = @playlist["name"]
       @playlist_uri = @playlist["uri"]
       @playlist_id = @playlist["id"]
->>>>>>> b4020d246ae921f65fdcc5cd2a92496bb3c693b0
+
     end
       # chat
       @chatroom = Chatroom.find_or_create_by(mood: mood(@mood))
       @message = Message.new
 
-<<<<<<< HEAD
     @playlist = Hash[playlists.to_a.sample]
     puts "This is the playlist #{@playlist}"
     @playlist_img = @playlist["images"][0]["url"]
@@ -125,8 +123,6 @@ class PagesController < ApplicationController
     @playlist_uri = @playlist["uri"]
     @playlist_id = @playlist["id"]
 
-=======
->>>>>>> b4020d246ae921f65fdcc5cd2a92496bb3c693b0
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
     # event API
@@ -155,4 +151,5 @@ class PagesController < ApplicationController
       end
     end
 
+end
 end
