@@ -17,7 +17,7 @@
       <% end %>
       <%= f.hidden_field :event, :value=>JSON.generate(@event)%>
       <%= f.hidden_field :poem, :value=>JSON.generate(@poem)%>
-      <%= button_tag type: 'submit' do %>
+      <%= button_tag type: 'submit', title: 'Save this mood' do %>
         <i class="fas fa-save"></i>
       <% end %>
     <% end %>
