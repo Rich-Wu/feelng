@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= action_cable_meta_tag %>
     <!-- MENU SECTION  -->
     <div class="menu-container" onclick="openMenu()">
       <div class="bar1" style=""></div>
@@ -45,22 +45,6 @@
       </div>
     </div>
 
-    <div id="overlay2" class="overlay-container" style="">
-      <div class="closebtn" onclick="closeOverlay2()">&times;</div>
-      <div class="overlay-signup">
-        <% if !current_spotify_user %>
-          <%= form_for @user, remote:true do |f| %>
-            <h2>Signup</h2>
-            <%= f.email_field :email, placeholder: "Email (e.g. example@hotmail.com)" %><br>
-            <%= f.text_field :username, placeholder: "Username" %><br>
-            <%= f.text_field :first_name, placeholder: "First Name" %><br>
-            <%= f.text_field :last_name, placeholder: "Last Name" %><br>
-            <%= f.password_field :password, placeholder: "Password (min. 8 characters)" %><br>
-            <%= f.submit("Create", {:class => 'createBtn'}) %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

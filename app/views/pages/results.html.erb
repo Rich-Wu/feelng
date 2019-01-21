@@ -7,11 +7,13 @@
   <%= image_tag("emojis/#{@mood}") %>
 </div>
 
+
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
 <%= render 'shared/event' %>
 
 <div class="chat-popup" id="myForm">
+  <%= render partial: 'chatrooms/chatroom' %>
   <form action="" class="form-container" style="border: 10px solid <%=@photo['color']%>">
     <h1>Talk</h1>
 
@@ -23,73 +25,81 @@
 </div>
 
 <!-- SPOTIFY CONTROLLERS -->
-<div class="player">
-  <button id="prev"><i class="fas fa-step-backward"></i></button>
-  <button id="play"><i class="fas fa-play"></i></button>
-  <button id="next"><i class="fas fa-step-forward"></i></button>
-  <p id="track_name">Track Name:</p>
-  <p id="artist">Artist: </p>
-  <p id="album">Album: </p>
-</div>
+<%if current_spotify_user%>
+  <div class="player">
+    <button id="prev">Previous</button>
+    <button id="play">Play/Pause</button>
+    <button id="next">Next</button>
+    <p id="track_name">Track Name:</p>
+    <p id="artist">Artist: </p>
+    <p id="album">Album: </p>
+  </div>
+<%else%>
+ 
+<%end%>
+
 
 <!-- <img src="#" alt="Album Cover" id="album_cover"> -->
+<% if current_spotify_user%>
+  
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script>
+  console.log("We in it boys")
+    //getting token and playlist uri from controller
+    const playlist_uri = "<%=@playlist_uri%>";
+    const token = "<%=current_spotify_user.access_token%>"
 
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
-<script>
-  //getting token and playlist uri from controller
-  const playlist_uri = "<%=@playlist_uri%>";
-  const token = "<%=current_spotify_user.access_token%>"
-
-  async function play (device_id,playlist) {
-      return new Promise((resolve) => {
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
-            method: 'PUT',
-            body: JSON.stringify({
-            "context_uri": playlist
-            }),
-            headers: {
-            Authorization: `Bearer ${token}`
-            }
-        }).then(resolve);
-            });
-  }
-
-  window.onSpotifyWebPlaybackSDKReady = () => {};
-
-  async function waitForSpotifyWebPlaybackSDKToLoad () {
-    return new Promise(resolve => {
-  if (window.Spotify) {
-    resolve(window.Spotify);
-  } else {
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      resolve(window.Spotify);
-    };
-  }
-    });
-  };
-
-  async function waitUntilUserHasSelectedPlayer (sdk) {
-    return new Promise(resolve => {
-  let interval = setInterval(async () => {
-    let state = await sdk.getCurrentState();
-    if (state !== null) {
-      resolve(state);
-      clearInterval(interval);
+    async function play (device_id,playlist) {
+        return new Promise((resolve) => {
+          fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
+              method: 'PUT',
+              body: JSON.stringify({
+              "context_uri": playlist
+              }),
+              headers: {
+              Authorization: `Bearer ${token}`
+              }
+          }).then(resolve);
+              });
     }
-  });
+
+    window.onSpotifyWebPlaybackSDKReady = () => {};
+
+    async function waitForSpotifyWebPlaybackSDKToLoad () {
+      return new Promise(resolve => {
+    if (window.Spotify) {
+      resolve(window.Spotify);
+    } else {
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        resolve(window.Spotify);
+      };
+    }
+      });
+    };
+
+    async function waitUntilUserHasSelectedPlayer (sdk) {
+      return new Promise(resolve => {
+    let interval = setInterval(async () => {
+      let state = await sdk.getCurrentState();
+      if (state !== null) {
+        resolve(state);
+        clearInterval(interval);
+      }
     });
-  };
+      });
+    };
 
-  (async () => {
-    const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
+ 
+    
+    (async () => {
+      const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
 
-    const sdk = new Player({
-  name: "Feelng's Player",
-  volume: 1.0,
-  getOAuthToken: callback => { callback(token); }
-    });
-
-    // Playback state has changed
+      const sdk = new Player({
+    name: "Feelng's Player",
+    volume: 1.0,
+    getOAuthToken: callback => { callback(token); }
+      });
+       // Playback state has changed
     sdk.on("player_state_changed", state => {
   let {
       id,
@@ -112,53 +122,53 @@
           $('#album_cover').attr('src', album_images[0].url);
     });
 
-     document.getElementById("prev").addEventListener("click", async function() {
-          await sdk.previousTrack();
+      document.getElementById("prev").addEventListener("click", async function() {
+            await sdk.previousTrack();
+        });
+        document.getElementById("play").addEventListener("click", async function() {
+            await sdk.togglePlay();
+        });
+        document.getElementById("next").addEventListener("click", async function() {
+            await sdk.nextTrack();
+        });
+
+      // Ready
+      sdk.on('ready', data => {
+    let { device_id } = data;
+
+    // Play a track using our new device ID
+    console.log('Ready with Device ID', device_id);
+    play(device_id,playlist_uri);
       });
-      document.getElementById("play").addEventListener("click", async function() {
-          await sdk.togglePlay();
-      });
-      document.getElementById("next").addEventListener("click", async function() {
-          await sdk.nextTrack();
-      });
 
-    // Ready
-    sdk.on('ready', data => {
-  let { device_id } = data;
+      let connected = await sdk.connect();
+      if (connected) {
+    console.log("Waiting for player to be selected ...");
+    let state = await waitUntilUserHasSelectedPlayer(sdk);
+    console.log("Player has been selected!");
 
-  // Play a track using our new device ID
-  console.log('Ready with Device ID', device_id);
-  play(device_id,playlist_uri);
-    });
-
-    let connected = await sdk.connect();
-    if (connected) {
-  console.log("Waiting for player to be selected ...");
-  let state = await waitUntilUserHasSelectedPlayer(sdk);
-  console.log("Player has been selected!");
-
-  await sdk.resume();
+    await sdk.resume();
 
 
-  let {
-    id,
-    uri: track_uri,
-    name: track_name,
-    duration_ms,
-    artists,
-    album: {
-      name: album_name,
-      uri: album_uri,
-      images: album_images
-    }
-  } = state.track_window.current_track;
+    let {
+      id,
+      uri: track_uri,
+      name: track_name,
+      duration_ms,
+      artists,
+      album: {
+        name: album_name,
+        uri: album_uri,
+        images: album_images
+      }
+    } = state.track_window.current_track;
 
-  console.log(`You're listening to ${track_name} by ${artists[0].name}!`);
-    } else {
-  console.error("Failed to connect Player");
-    }
-  })();
-</script>
-
+    console.log(`You're listening to ${track_name} by ${artists[0].name}!`);
+      } else {
+    console.error("Failed to connect Player");
+      }
+    })();
+  </script>
+<%end%>
 
 <%= javascript_include_tag 'pages', 'results' %>

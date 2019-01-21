@@ -14,4 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require_tree ./channels
 //= stub emoji-grid

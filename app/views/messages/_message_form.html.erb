@@ -1,0 +1,6 @@
+<%= form_for message, url: new_message_path(message), remote: true, authenticity_token: true do |f|%>
+    <%= f.label :your_message%>
+    <%= f.text_area :body, data: {textarea: "message"}%>
+    <%= f.hidden_field :chatroom_id, value: chatroom.id%>
+    <%= f.submit "send", data: {send: "message"}%>
+<%end%>

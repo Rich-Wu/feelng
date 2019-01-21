@@ -26,20 +26,7 @@
   </div>
 </div>
 
-<div id="overlay2" class="overlay-container">
-  <div class="closebtn" onclick="closeOverlay2()">&times;</div>
-  <div class="overlay-signup">
-    <%= form_for @user, remote:true do |f| %>
-      <h2>Signup</h2>
-      <%= f.email_field :email, placeholder: "Email (e.g. example@hotmail.com)" %><br>
-      <%= f.text_field :username, placeholder: "Username" %><br>
-      <%= f.text_field :first_name, placeholder: "First Name" %><br>
-      <%= f.text_field :last_name, placeholder: "Last Name" %><br>
-      <%= f.password_field :password, placeholder: "Password (min. 8 characters)" %><br>
-      <%= f.submit("Create", {:class => 'createBtn'}) %>
-    <% end %>
-  </div>
-</div>
+
 
 <!-- EMOJI GRID -->
 <h1 id="main">What's The Mood?</h1>

@@ -1,0 +1,15 @@
+<h1><%= @chatroom.mood%></h1> <!--chatroom title-->
+
+<%if @chatroom.messages.any?%> <!-- chatroom body -->
+    <div id="messages">
+        <%= render partial: 'messages/message', collection: @chatroom.messages%>
+    </div>
+    
+<%else%>
+    <div class="hidden" id="messages">
+        <!--unhidden once subscribed-->
+    </div>
+<%end%>
+
+<!-- message send button-->
+<%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>

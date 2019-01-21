@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+  
+  post '/messages', to: 'messages#create', as: 'new_message'
+  
+  get '/entries/:id', to: 'entries#show', as: "entry"
+  post '/entries', to: 'entries#create', as: 'new_entry'
+
   post '/logout', to: 'sessions#logout', as: 'logout'
   post '/login', to: 'sessions#login', as: 'login'
   post '/users', to: 'users#create'
-  get '/entries/:id', to: 'entries#read', as: "entry"
-  get 'entries/delete'
-  post '/entries', to: 'entries#create', as: 'new_entry'
+
   get '/profile', to: 'users#view', as: 'profile'
   get 'users/update'
   get 'spotify_users/create'
