@@ -1,0 +1,32 @@
+.chat-popup {
+  position: absolute;
+  right: 3%;
+  height: 60vh;
+  top: 20vh;
+  width: 400px;
+  padding: 11px;
+  background-color: rgba(255,255,255,0.7);
+  height: 64vh;
+  h1 {
+    color: white;
+    text-shadow: 3px 3px black;
+    font-size: 2.2rem;
+    margin: 4% 0;
+
+  }
+}
+
+.new_message {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  textarea {
+    display: inline-block;
+    width: 80%;
+    resize: none;
+  }
+  [type=submit] {
+    display: inline-block;
+    width: 10%;
+  }
+}

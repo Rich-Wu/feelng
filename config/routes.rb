@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get 'entries/delete'
   post '/entries', to: 'entries#create', as: 'new_entry'
   get '/profile', to: 'spotify_users#view', as: 'profile'
+  mount ActionCable.server => '/cable'
+  post '/messages', to: 'messages#create', as: 'new_message'
+  get '/entries/:id', to: 'entries#show', as: "entry"
   get 'users/update'
+  post '/entries', to: 'entries#create', as: 'new_entry'
+  get '/profile', to: 'spotify_users#view', as: 'profile'
   get 'spotify_users/create'
   get 'spotify_logins/create'
   root 'pages#home'
