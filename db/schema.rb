@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_223753) do
+ActiveRecord::Schema.define(version: 2019_01_21_155346) do
+
+  create_table "chat_users", force: :cascade do |t|
+    t.integer "chat_room_id"
+    t.integer "spotify_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_chat_users_on_chat_room_id"
+    t.index ["spotify_user_id"], name: "index_chat_users_on_spotify_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "mood"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.string "mood"
@@ -23,6 +38,16 @@ ActiveRecord::Schema.define(version: 2019_01_20_223753) do
     t.integer "spotify_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "chatroom_id"
+    t.integer "spotify_user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["spotify_user_id"], name: "index_messages_on_spotify_user_id"
+  end
+
   create_table "spotify_users", force: :cascade do |t|
     t.string "access_token"
     t.string "refresh_token"
@@ -32,18 +57,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_223753) do
     t.string "spotify_uri"
     t.string "href"
     t.string "uri"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "username"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

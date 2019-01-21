@@ -7,9 +7,9 @@
     
 <%else%>
     <div class="hidden" id="messages">
-        <!--unhidden once subscribed>
+        <!--unhidden once subscribed-->
     </div>
 <%end%>
 
-<!--message send button-->
+<!-- message send button-->
 <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>

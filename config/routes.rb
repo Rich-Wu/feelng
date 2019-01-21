@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
-  resources :chatrooms, param :slug
-  resources :messages
+  
+  post '/messages', to: 'messages#create', as: 'new_message'
+  
   get '/entries/:id', to: 'entries#show', as: "entry"
   post '/entries', to: 'entries#create', as: 'new_entry'
 

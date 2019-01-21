@@ -13,6 +13,7 @@
 <%= render 'shared/event' %>
 
 <div class="chat-popup" id="myForm">
+  <%= render partial: 'chatrooms/chatroom' %>
   <form action="" class="form-container" style="border: 10px solid <%=@photo['color']%>">
     <h1>Talk</h1>
 
@@ -88,7 +89,17 @@
       });
     };
 
-    // Playback state has changed
+ 
+    
+    (async () => {
+      const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
+
+      const sdk = new Player({
+    name: "Feelng's Player",
+    volume: 1.0,
+    getOAuthToken: callback => { callback(token); }
+      });
+       // Playback state has changed
     sdk.on("player_state_changed", state => {
   let {
       id,
@@ -110,38 +121,6 @@
           $('#album').text('  |  Album: ' + album_name);
           $('#album_cover').attr('src', album_images[0].url);
     });
-    
-    (async () => {
-      const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
-
-      const sdk = new Player({
-    name: "Feelng's Player",
-    volume: 1.0,
-    getOAuthToken: callback => { callback(token); }
-      });
-
-      // Playback state has changed
-      sdk.on("player_state_changed", state => {
-    let {
-        id,
-        uri: track_uri,
-        name: track_name,
-        duration_ms,
-        position,
-        artists,
-                album: {
-                    name: album_name,
-                    uri: album_uri,
-                    images: album_images
-                }
-    } = state.track_window.current_track;
-
-    console.log(state);
-    $('#track_name').text('Track Name: ' + track_name);
-            $('#artist').text('Artist: ' + artists[0].name);
-            $('#album').text('Album: ' + album_name);
-            $('#album_cover').attr('src', album_images[0].url);
-      });
 
       document.getElementById("prev").addEventListener("click", async function() {
             await sdk.previousTrack();

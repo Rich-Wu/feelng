@@ -1,5 +1,5 @@
 class Chatroom < ApplicationRecord
     has_many :messages, dependent: :destroy
     has_many :spotify_users, through: :messages
-    validates :topic, presence: true, uniqueness: true, case_sensitive: false
+    validates :mood, presence: true, uniqueness: true, case_sensitive: false
 end

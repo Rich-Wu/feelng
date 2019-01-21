@@ -71,6 +71,9 @@ class PagesController < ApplicationController
       @playlist_uri = @playlist["uri"]
       @playlist_id = @playlist["id"]
     end
+      # chat
+      @chatroom = Chatroom.find_or_create_by(mood: mood(@mood))
+      @message = Message.new
     
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
