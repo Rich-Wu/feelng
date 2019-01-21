@@ -5,20 +5,10 @@
   right: 3%;
   height: 60vh;
   top: 20vh;
-}
-
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 5%;
-  right: 0;
-  width: 300px;
+  width: 400px;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.7);
+  height: 64vh;
 }
 
 /* The popup chat - hidden by default */
@@ -33,10 +23,7 @@
 
 /* Add styles to the form container */
 .form-container {
-  width: 400px;
-  padding: 10px;
-  background-color: rgba(255,255,255,0.7);
-  height: 64vh;
+
 }
 
 /* Full-width textarea */
@@ -72,14 +59,4 @@
   color: white;
   text-shadow: 3px 3px black;
   font-size: 2.2rem;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
 }

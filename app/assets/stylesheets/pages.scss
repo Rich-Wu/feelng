@@ -277,6 +277,24 @@ h1 {
   }
 }
 
+#save_mood {
+  position: fixed;
+  top: 1%;
+  right: 8%;
+  color: white;
+  padding: 3%;
+  z-index: 2;
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 3rem;
+    border: none;
+    text-shadow: 2px 2px white;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   #entry_content {
     height: 20vh;

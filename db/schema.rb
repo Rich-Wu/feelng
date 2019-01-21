@@ -28,14 +28,22 @@ ActiveRecord::Schema.define(version: 2019_01_21_155346) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.string "mood"
-    t.text "photo"
-    t.text "playlist"
-    t.text "event"
-    t.text "poem"
+    t.integer "journal_id"
+    t.string "event"
+    t.string "content"
+    t.string "poem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
+    t.string "mood"
+    t.string "playlist"
     t.integer "spotify_user_id"
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -57,6 +65,18 @@ ActiveRecord::Schema.define(version: 2019_01_21_155346) do
     t.string "spotify_uri"
     t.string "href"
     t.string "uri"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

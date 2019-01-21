@@ -5,7 +5,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
     },
 
     renderMessage: function(data) {
-        //how you want the message to be formatted 
-        return "<p> <b>" + data.spotify_user + ": </b>" + data.message + "</p>"
+        //how you want the message to be formatted
+        return "<p> <b>" + data.spotify_user.username + ": </b>" + data.message + "</p>"
     }
 });
