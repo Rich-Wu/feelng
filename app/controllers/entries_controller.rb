@@ -15,6 +15,8 @@ class EntriesController < ApplicationController
     @playlist_name = @playlist["name"]
     @playlist_uri = @playlist["uri"]
     @playlist_id = @playlist["id"]
+    @chatroom = Chatroom.find_or_create_by(mood: mood(@mood))
+    @message = Message.new
     render :template => 'pages/results'
     
   end
