@@ -3,7 +3,6 @@
   <head>
     <title>Feelng</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
@@ -15,22 +14,31 @@
 
       <div id="menu-content" class="menu-dropdown" style="">
         <div onclick="openOverlay1()">About</div>
-        <% if !session[:id] %>
-          <div onclick="openOverlay2()">Signup</div>
-          <div onclick="">Spotify Authentication</div>
+        <div><%= link_to "Home", root_path %></div>
+        <% if !session[:spotify_user] %>
+        <div><%= link_to "Connect With Spotify", spotify_logins_create_path %></div>
         <% else %>
-          <%= link_to "Profile", "/profile" %>
-          <%= link_to "Logout", logout_path, method: :post %>
+        <div><%= link_to "Profile", "/profile" %></div>
+        <div><%= link_to "Logout", logout_path, method: :post %></div>
         <% end %>
       </div>
     </div>
 
-    <!-- MENU OVERLAYS -->
+    <!-- MENU OVERLAY -->
     <div id="overlay1" class="overlay-container" style="">
       <div class="closebtn" onclick="closeOverlay1()">&times;</div>
       <div class="overlay-about">
+        <p>
+           'Feelng' is your go-to content generator app based on your current mood.<br>
+            Select an emoji and watch the magic happen!
+
+            Feelng uses the following APIs to set the mood:<br></br>
+            Poetry: <a href="http://poetrydb.org/index.html">PoetryDB</a><br>
+            Music: <a href="https://developer.spotify.com/documentation/web-api/">Spotify</a><br>
+            Events/Attractions: <a href="https://developer.foursquare.com/">Foursquare</a><br>
+            Images: <a href="https://unsplash.com/developers">Unsplash</a><br>
         <h2><span>'Feelng'</span> is your go-to content generator app based on your current mood.<br>
-        Select an emoji and watch the magic to happen!</h2>
+        Select an emoji and watch the magic happen!</h2>
 
             <h3>Feelng uses the following APIs to set the mood:</h3>
             <p>Poetry: <a href="http://poetrydb.org/index.html">PoetryDB</a></p>
@@ -40,8 +48,6 @@
             <% if request.path == '/mood' %>
             <p>The image on this page is by <a href="<%=@photo['user']['links']['html']%>"><%= @photo['user']['name'] %></a></p>
             <% end %>
-      </div>
-    </div>
 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -53,6 +59,8 @@
   </head>
 
   <body>
+
+
     <%= yield %>
   </body>
 </html>

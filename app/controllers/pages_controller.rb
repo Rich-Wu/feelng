@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def calendar
+    @mood = params['mood']
   end
 
   def results
@@ -23,6 +24,46 @@ class PagesController < ApplicationController
     # color API
 
     # music API
+<<<<<<< HEAD
+    id = ENV["SPOTIFY_ID"]
+    secret = ENV["SPOTIFY_SECRET"]
+    credentials = "#{id}:#{secret}"
+    # encode the string to base 64
+    enc = Base64.encode64(credentials)
+    enc = enc.gsub(/\s+/,"")
+
+    body = {
+        "grant_type" => "client_credentials"
+    }
+
+    headers = {
+        "Authorization" => "Basic #{enc}"
+    }
+    # make the post request with required body and header parameters
+    response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body, :headers => headers)
+    body = JSON.parse(response.body)
+    # set the access token for future calls
+    @client_access_token = body["access_token"]
+
+    query = {
+      "q" => music(mood(params['mood'])),
+      "type" => "playlist",
+      "limit"=> 50
+    }
+
+    user_headers = {
+      "Authorization" => "Bearer #{helpers.current_spotify_user.access_token}"
+    }
+    search_response = HTTParty.get("https://api.spotify.com/v1/search", :query => query, :headers => user_headers)
+    body = JSON.parse(search_response.body)
+    items = body["playlists"]["items"]
+
+    playlists = []
+
+    items.each do |item|
+      # Saving IDs to save space
+      playlists << item
+=======
     if helpers.current_spotify_user
       id = ENV["SPOTIFY_ID"]
       secret = ENV["SPOTIFY_SECRET"]
@@ -70,11 +111,22 @@ class PagesController < ApplicationController
       @playlist_name = @playlist["name"]
       @playlist_uri = @playlist["uri"]
       @playlist_id = @playlist["id"]
+>>>>>>> b4020d246ae921f65fdcc5cd2a92496bb3c693b0
     end
       # chat
       @chatroom = Chatroom.find_or_create_by(mood: mood(@mood))
       @message = Message.new
 
+<<<<<<< HEAD
+    @playlist = Hash[playlists.to_a.sample]
+    puts "This is the playlist #{@playlist}"
+    @playlist_img = @playlist["images"][0]["url"]
+    @playlist_name = @playlist["name"]
+    @playlist_uri = @playlist["uri"]
+    @playlist_id = @playlist["id"]
+
+=======
+>>>>>>> b4020d246ae921f65fdcc5cd2a92496bb3c693b0
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
     # event API

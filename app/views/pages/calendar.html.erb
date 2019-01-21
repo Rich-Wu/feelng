@@ -1,23 +1,20 @@
 <div class="profile-container">
+  <h2>Your Moods</h2>
 
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-  <% end %>
-
-  <div class="date-header">
-    <h2 style="text-align:center;">Date</h2>
+  <div class="table-wrapper">
+    <table class="mood-table">
+      <tr>
+        <th>Mood</th>
+        <th>Created At</th>
+        <th>Mood Account</th>
+      </tr>
+      <tr class="rows">
+        <td>Spooky</td>
+        <td>Date</td>
+        <td>Profile Icon</td>
+      </tr>
+    </table>
   </div>
 
-  <div class="results-wrapper">
-    <div class="">
-      <img src="assets/emojis/alluring.png" alt="">
-    </div>
-    <div class="">
-      <img src="assets/emojis/cool.png" alt="">
-    </div>
-    <div class="">
-      <img src="assets/emojis/furious.png" alt="">
-    </div>
-  </div>
 
 </div>
