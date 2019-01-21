@@ -15,7 +15,7 @@
 
       <div id="menu-content" class="menu-dropdown" style="">
         <div onclick="openOverlay1()">About</div>
-        <% if !session[:id] %>
+        <% if !session[:spotify_user] %>
           <div onclick="openOverlay2()">Signup</div>
           <div onclick="">Spotify Authentication</div>
         <% else %>
