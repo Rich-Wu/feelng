@@ -6,22 +6,30 @@
   <h1>The Mood Is:</h1>
   <%= image_tag("emojis/#{@mood}") %>
 </div>
-
+<div id="save_mood">
+  <!-- Form to save current mood  -->
+  <%= form_for @entry, url: new_entry_path(@entry) do |f| %>
+    <% if current_spotify_user %>
+      <%= f.hidden_field :mood, :value=>@mood%>
+      <%= f.hidden_field :photo, :value=>JSON.generate(@photo)%>
+      <% if current_spotify_user %>
+        <%= f.hidden_field :playlist, :value=>JSON.generate(@playlist)%>
+      <% end %>
+      <%= f.hidden_field :event, :value=>JSON.generate(@event)%>
+      <%= f.hidden_field :poem, :value=>JSON.generate(@poem)%>
+      <%= button_tag type: 'submit', title: 'Save this mood' do %>
+        <i class="fas fa-save"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
 
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
 <%= render 'shared/event' %>
 
-<div class="chat-popup" id="myForm">
+<div class="chat-popup" id="myForm" style="border: 10px solid <%=@photo['color']%>">
   <%= render partial: 'chatrooms/chatroom' %>
-  <form action="" class="form-container" style="border: 10px solid <%=@photo['color']%>">
-    <h1>Talk</h1>
-
-    <label for="msg"><b>Message</b></label>
-    <textarea placeholder="Type message.." name="msg" required></textarea>
-
-    <button type="submit" class="btn">Send</button>
-  </form>
 </div>
 
 <!-- SPOTIFY CONTROLLERS -->
@@ -35,13 +43,13 @@
     <p id="album">Album: </p>
   </div>
 <%else%>
- 
+
 <%end%>
 
 
 <!-- <img src="#" alt="Album Cover" id="album_cover"> -->
 <% if current_spotify_user%>
-  
+
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
   console.log("We in it boys")
@@ -89,8 +97,8 @@
       });
     };
 
- 
-    
+
+
     (async () => {
       const { Player } = await waitForSpotifyWebPlaybackSDKToLoad();
 

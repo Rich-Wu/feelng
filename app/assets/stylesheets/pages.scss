@@ -13,6 +13,7 @@ body {
   float: right;
   top: 5%;
   right: 5%;
+  z-index: 3;
 }
 
 .bar1, .bar2, .bar3 {
@@ -24,6 +25,7 @@ body {
   position: relative;
   right: 10px;
   top: 10px;
+  box-shadow: 2px 2px white;
 }
 
 // MENU DROPDOWN
@@ -273,6 +275,24 @@ h1 {
     top: 10px;
     padding-left: 20px;
     transition: opacity 1s;
+  }
+}
+
+#save_mood {
+  position: fixed;
+  top: 1%;
+  right: 8%;
+  color: white;
+  padding: 3%;
+  z-index: 2;
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 3rem;
+    border: none;
+    text-shadow: 2px 2px white;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
