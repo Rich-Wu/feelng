@@ -36,3 +36,18 @@
     top: -12px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .chat-popup {
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    width: 78vw;
+  }
+  .new_message {
+    position: relative;
+    width: auto;
+    bottom: -75%;
+  }
+
+}

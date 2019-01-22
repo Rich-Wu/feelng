@@ -250,7 +250,7 @@ h1 {
 }
 
 #save_mood {
-  position: fixed;
+  position: absolute;
   top: 1%;
   right: 8%;
   color: white;
@@ -293,6 +293,13 @@ h1 {
   }
   h1 {
     font-size: 1.8rem;
+  }
+  #save_mood {
+    top: 7%;
+    right: 4%;
+    button {
+      font-size: 2rem;
+    }
   }
 }
 
