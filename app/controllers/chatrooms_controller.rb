@@ -6,5 +6,6 @@ class ChatroomsController < ApplicationController
       puts "nice"
     else
       @chatroom.create(:mood => @mood.to_s)
+    end
   end
 end
