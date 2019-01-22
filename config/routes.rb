@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   post '/logout', to: 'spotify_users#logout', as: 'logout'
   get 'entries/delete'
-  post '/entries', to: 'entries#create', as: 'new_entry'
-  get '/profile', to: 'spotify_users#view', as: 'profile'
   mount ActionCable.server => '/cable'
   post '/messages', to: 'messages#create', as: 'new_message'
   get '/entries/:id', to: 'entries#show', as: "entry"

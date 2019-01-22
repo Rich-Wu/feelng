@@ -30,7 +30,7 @@ class SpotifyUsersController < ApplicationController
         spotify_uri: user_params["external_urls"]["spotify"],
         href: user_params["href"],
         uri: user_params["uri"])
-      @spotify_user.update(access_token: oauth_body["access_token"], refresh_token: oauth_body["refresh_token"])
+      @spotify_user.update(access_token: oauth_body["access_token"], refresh_token: oauth_body["refresh_token"], display_name: user_params["display_name"])
       session[:spotify_user] = @spotify_user.username
       redirect_to root_url
     end

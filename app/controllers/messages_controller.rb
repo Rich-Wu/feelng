@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.body,
-        spotify_user: message.spotify_user.username
+        spotify_user: message.spotify_user.display_name
       head :ok
     else
       # do something else message is invalid
