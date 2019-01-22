@@ -20,13 +20,19 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
   textarea {
     display: inline-block;
     width: 80%;
     resize: none;
+    border: none;
   }
   [type=submit] {
     display: inline-block;
-    width: 10%;
+    padding: 10px;
+    background-color: #ffcc33;
+    border: none;
+    position: relative;
+    top: -12px;
   }
 }

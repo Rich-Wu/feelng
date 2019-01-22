@@ -71,7 +71,7 @@ body {
 .overlay-container {
   height: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   position: fixed;
@@ -95,7 +95,7 @@ body {
   text-align: center;
 }
 
-.overlay-about p {
+.overlay-about {
   position: relative;
   top: 1.5em;
   width: 80%;
