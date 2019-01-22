@@ -6,7 +6,7 @@ var about_overlay = document.getElementById('overlay1');
 function popUp() {
  var userConfirm = confirm("Welcome to Feelng!\nWould you like to connect to Spotify for playback music? You can always connect later by selecting '\Connect With Spotify\' in the dropdown menu.");
    if (userConfirm == true) {
-    window.location.href = "spotify_logins/create";
+    window.location.href += "spotify_logins/create";
   }
 }
 
