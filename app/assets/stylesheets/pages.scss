@@ -82,6 +82,22 @@ body {
 }
 
 .overlay-about {
+ display: grid;
+ justify-content: center;
+ grid-template: 20px 20px / auto;
+ grid-gap: 10px;
+ position: relative;
+ text-align: center;
+}
+
+.overlay-about h3 {
+  position: relative;
+  text-align: center;
+}
+
+.overlay-about p {
+  position: relative;
+  top: 1.5em;
   width: 80%;
   margin: 20% auto;
   display: block;
@@ -131,82 +147,11 @@ body {
       max-width: 50%;
   }
 }
-  .overlay-about h3, ol {
+  .overlay-about h3 {
     margin-top: 15%;
   }
   .closebtn {
     left: 85%;
-  }
-}
-
-// USER PROFILE
-.simple-calendar {
-  display: grid;
-  justify-content: center;
-  position: relative;
-  top: 3.5em;
-  .calendar-heading {
-    text-align: center;
-    font-size: larger;
-  }
-  .table {
-    position: relative;
-    top: 1em;
-    box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
-    0 15px 6px -7px rgba(43,43,43,0.1);
-  }
-  .day {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    padding: 0 55px 55px 0;
-  }
-}
-
-.profile-container h2 {
-  text-align: center;
-  text-shadow: 3px 3px #ffcc33;
-  font-size: xx-large;
-}
-
-.table-wrapper {
-  display: grid;
-  justify-content: center;
-  position: relative;
-  width: 95%;
-  top: 5em;
-}
-
-.mood-table {
-  width: 130%;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 0 rgba(43,43,43,0.1),
-  0 13px 6px -7px rgba(43,43,43,0.1);
-  // border-collapse: collapse;
-}
-
-.rows, td, th {
-  border-color: black;
-  padding: 10px;
-  text-align: left;
-}
-
-@media screen and (max-width: 390px) {
-  .simple-calendar {
-    display: grid;
-    justify-content: center;
-    position: relative;
-    top: 5em;
-      .day {
-      padding: 5px 20px 20px 0;
-  }
- }
-  .results-wrapper {
-    left: 30%;
-    text-align: center;
-    grid-template: 30% / auto;
-      .results-wrapper img {
-        height: 100%;
-    }
   }
 }
 
