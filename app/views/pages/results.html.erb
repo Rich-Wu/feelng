@@ -16,6 +16,8 @@
         <%= f.hidden_field :playlist, :value=>JSON.generate(@playlist)%>
       <% end %>
       <%= f.hidden_field :event, :value=>JSON.generate(@event)%>
+      <% puts @poem %>
+      <% puts @poem.class %>
       <%= f.hidden_field :poem, :value=>JSON.generate(@poem)%>
       <%= button_tag type: 'submit', title: 'Save this mood' do %>
         <i class="fas fa-save"></i>
@@ -26,6 +28,7 @@
 
 <%= render 'shared/poem' %>
 <%= render 'shared/music' %>
+<% puts @event %>
 <%= render 'shared/event' %>
 
 <div class="chat-popup" id="myForm" style="border: 10px solid <%=@photo['color']%>">

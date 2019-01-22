@@ -3,7 +3,7 @@
   <head>
     <title>Feelng</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
@@ -17,10 +17,10 @@
         <div onclick="openOverlay1()">About</div>
         <div><%= link_to "Home", root_path %></div>
         <% if !session[:spotify_user] %>
-        <div><%= link_to "Connect With Spotify", spotify_logins_create_path %></div>
+          <div><%= link_to "Connect With Spotify", spotify_logins_create_path %></div>
         <% else %>
-        <div><%= link_to "Profile", "/profile" %></div>
-        <div><%= link_to "Logout", logout_path, method: :post %></div>
+          <div><%= link_to "Profile", "/profile" %></div>
+          <div><%= link_to "Logout", logout_path, method: :post %></div>
         <% end %>
       </div>
     </div>
@@ -40,8 +40,10 @@
             <% if request.path == '/mood' %>
             <p>The image on this page is by <a href="<%=@photo['user']['links']['html']%>"><%= @photo['user']['name'] %></a></p>
             <% end %>
+
+      </div>
     </div>
-    </div>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
