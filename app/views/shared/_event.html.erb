@@ -1,5 +1,5 @@
 <div class="feature" id="event" style="border: 10px solid <%=@photo['color']%>">
   <h2>Do</h2>
-  <h3><%= @event['groups'][0]['items'] %></h3>
+  <h3><%= @event['groups'] %></h3>
   <p><%= @event['groups'][0]['items'][0]['venue']['location']['formattedAddress'].join(" ") %></p>
 </div>
