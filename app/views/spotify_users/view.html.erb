@@ -1,19 +1,17 @@
 <div class="profile-container">
   <h2>Your Moods</h2>
-
   <div class="table-wrapper">
     <table class="mood-table">
       <tr>
         <th>Mood</th>
         <th>Created At</th>
-        <th>Mood Account</th>
       </tr>
+      <% current_spotify_user.entries.each do |e| %>
       <tr class="rows">
-        <td>Spooky</td>
-        <td>Date</td>
-        <td>Profile Icon</td>
+        <td><%= link_to image_tag("emojis/#{e.mood}"), entry_path(e.id) %></td>
+        <td><%= e.created_at.to_date %></td>
+      <% end %>
       </tr>
     </table>
   </div>
-
 </div>
