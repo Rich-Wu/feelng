@@ -15,9 +15,9 @@ class SpotifyUsersController < ApplicationController
       }
 
       if Rails.env.production?
-        query_params[:redirect_uri] = "http://feelng.herokuapp.com/spotify_users/create"
+        body[:redirect_uri] = "http://feelng.herokuapp.com/spotify_users/create"
       else
-        query_params[:redirect_uri] = "http://localhost:3000/spotify_users/create"
+        body[:redirect_uri] = "http://localhost:3000/spotify_users/create"
       end
 
       oauth_response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body)
