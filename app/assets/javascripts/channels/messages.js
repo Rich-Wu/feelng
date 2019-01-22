@@ -9,6 +9,13 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
 
     renderMessage: function(data) {
         //how you want the message to be formatted
-        return "<p> <b>" + data.spotify_user + ": </b>" + data.message + "</p>"
+        var strong = document.createElement("strong");
+        var p = document.createElement("p");
+        var userText = document.createTextNode(data.spotify_user + ": ");
+        var msgText = document.createTextNode(data.message);
+        strong.appendChild(userText);
+        p.appendChild(userText);
+        p.appendChild(msgText);
+        return p;
     }
 });
