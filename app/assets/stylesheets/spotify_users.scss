@@ -1,3 +1,77 @@
 // Place all the styles related to the SpotifyUsers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// USER PROFILE
+.profile-body {
+  background: #E4E4E4;
+}
+
+.profile-header {
+  margin-top: 7.5%;
+  left: .5em;
+}
+
+.profile-container h2 {
+  color: #303030;
+  top: .25em;
+  position: absolute;
+  text-align: left;
+  text-shadow: 3px 3px #ffcc33;
+  font-size: 10em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.table-wrapper {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  top: 5em;
+}
+
+.mood-table {
+  position: relative;
+  width: 130%;
+  left: 9em;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  box-shadow: 0 0 10px 0 rgba(43,43,43,0.1),
+  0 13px 6px -7px rgba(43,43,43,0.1);
+}
+
+.mood-table img {
+  width: 50%;
+    &:hover {
+      transition: .5s;
+      transform: scale(1.1, 1.1);
+      opacity: .8;
+  }
+}
+
+.rows, td, th {
+  padding: 10px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 650px) {
+  .mood-table {
+    left: 0;
+    width: 100%;
+    top: 2em;
+  }
+  .mood-table img {
+    width: 40%;
+  }
+  .profile-container h2 {
+    text-align: center;
+    font-size: 2em;
+    position: relative;
+    top: 2em;
+  }
+  .profile-header {
+    margin-right: 4%;
+    margin-top: 0%;
+  }
+}
