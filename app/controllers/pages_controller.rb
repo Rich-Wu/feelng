@@ -82,6 +82,7 @@ class PagesController < ApplicationController
     # poetry API
     @poem = query_poetrydb(mood(params['mood']))
     # event API
+    puts "The params #{params}"
     @event = query_foursquare(mood(params['mood']),params['coordinates'])
     puts @event
 
