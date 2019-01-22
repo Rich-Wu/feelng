@@ -4,6 +4,6 @@
     <img src="<%=@playlist_img%>" alt="" id="playlist_img">
     <p id="playlist_name"><a href="<%= @playlist["external_urls"]["spotify"] %>"><%=@playlist_name%></a></p>
   <%else%>
-    <!-- OLIVIA STYLE HERE -->
+    <p>Please log in with Spotify to enable mood-enhancing playlists!</p>
   <%end%>
 </div>
