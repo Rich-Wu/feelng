@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_01_21_205048) do
 
-  create_table "chat_users", force: :cascade do |t|
-    t.integer "chat_room_id"
-    t.integer "spotify_user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_room_id"], name: "index_chat_users_on_chat_room_id"
-    t.index ["spotify_user_id"], name: "index_chat_users_on_spotify_user_id"
-  end
-
   create_table "chatrooms", force: :cascade do |t|
     t.string "mood"
     t.datetime "created_at", null: false
