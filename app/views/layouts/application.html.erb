@@ -48,8 +48,9 @@
             <% if request.path == '/mood' %>
             <p>The image on this page is by <a href="<%=@photo['user']['links']['html']%>"><%= @photo['user']['name'] %></a></p>
             <% end %>
-
-
+      </div>
+    </div>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script
