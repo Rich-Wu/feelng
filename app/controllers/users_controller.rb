@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def view
-    @user = User.find(session[:id])
+    @user = User.find_by(session[:spotify_user])
   end
 
   def update
