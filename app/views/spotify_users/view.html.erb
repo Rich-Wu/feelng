@@ -1,5 +1,8 @@
+<body class="profile-body">
+
 <div class="profile-container">
-  <h2>Your Moods</h2>
+  <h2>Your</h2>
+  <h2 class="profile-header">Moods</h2>
   <div class="table-wrapper">
     <table class="mood-table">
       <tr>
@@ -9,9 +12,11 @@
       <% current_spotify_user.entries.each do |e| %>
       <tr class="rows">
         <td><%= link_to image_tag("emojis/#{e.mood}"), entry_path(e.id) %></td>
-        <td><%= e.created_at.to_date %></td>
+        <td><%= e.created_at.to_date.strftime("%m/%d/%y") %></td>
       <% end %>
       </tr>
     </table>
   </div>
 </div>
+
+</body>
