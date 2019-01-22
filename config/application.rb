@@ -374,6 +374,7 @@ def query_foursquare(query, location)
     "v": "20180323",
     "limit": 1
     })
+  puts "This is the location #{location}"
   curl.perform
   data = JSON.parse(curl.body_str)
   return data['response']
