@@ -10,10 +10,15 @@ class SpotifyUsersController < ApplicationController
       body = {
         grant_type: "authorization_code",
         code: params[:code],
-        redirect_uri: "http://localhost:3000/spotify_users/create",
         client_id: ENV["SPOTIFY_ID"],
         client_secret: ENV["SPOTIFY_SECRET"]
       }
+
+      if Rails.env.production?
+        query_params[:redirect_uri] = "http://feelng.herokuapp.com/spotify_users/create"
+      else
+        query_params[:redirect_uri] = "http://localhost:3000/spotify_users/create"
+      end
 
       oauth_response = HTTParty.post("https://accounts.spotify.com/api/token", :body => body)
       oauth_body = JSON.parse(oauth_response.body)

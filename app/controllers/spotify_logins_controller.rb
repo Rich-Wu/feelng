@@ -12,6 +12,9 @@ class SpotifyLoginsController < ApplicationController
     else
       query_params[:redirect_uri] = "http://localhost:3000/spotify_users/create"
     end
+
+    puts query_params
+    
     url = "https://accounts.spotify.com/authorize/"
     puts "#{url}?#{query_params.to_query}"
     redirect_to "#{url}?#{query_params.to_query}"
