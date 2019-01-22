@@ -8,7 +8,7 @@ class SpotifyLoginsController < ApplicationController
       show_dialog: true
     }
     if Rails.env.production?
-      query_params[:redirect_uri] = "http://feelng.herokuapp.com/spotify_users/create"
+      query_params[:redirect_uri] = "https://feelng.herokuapp.com/spotify_users/create"
     else
       query_params[:redirect_uri] = "http://localhost:3000/spotify_users/create"
     end

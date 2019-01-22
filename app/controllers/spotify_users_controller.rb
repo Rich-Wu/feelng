@@ -15,7 +15,7 @@ class SpotifyUsersController < ApplicationController
       }
 
       if Rails.env.production?
-        body[:redirect_uri] = "http://feelng.herokuapp.com/spotify_users/create"
+        body[:redirect_uri] = "https://feelng.herokuapp.com/spotify_users/create"
       else
         body[:redirect_uri] = "http://localhost:3000/spotify_users/create"
       end
