@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_155346) do
+ActiveRecord::Schema.define(version: 2019_01_21_205048) do
 
   create_table "chat_users", force: :cascade do |t|
     t.integer "chat_room_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_155346) do
     t.string "spotify_uri"
     t.string "href"
     t.string "uri"
+    t.string "display_name"
   end
 
 end
