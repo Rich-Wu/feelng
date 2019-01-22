@@ -55,6 +55,14 @@
   text-align: center;
 }
 
+.mood-header {
+  position: relative;
+  margin-left: 45%;
+  top: 5em;
+  color: whitesmoke;
+  text-shadow: 3px 3px #ffcc33;
+}
+
 @media only screen and (max-width: 650px) {
   .mood-table {
     left: 0;
