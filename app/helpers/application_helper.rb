@@ -6,4 +6,9 @@ module ApplicationHelper
             @spotify_user = nil
         end
     end
+
+    def logout
+      session[:spotify_user] = nil
+      redirect_to root_path
+    end
 end
