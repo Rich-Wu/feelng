@@ -6,10 +6,6 @@ class PagesController < ApplicationController
     render 'home'
   end
 
-  def calendar
-    @mood = params['mood']
-  end
-
   def results
     @entry = Entry.new
     if !params['mood']
