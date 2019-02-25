@@ -1,8 +1,5 @@
 # Feelng
 
-![Image of Feelng Mood Page] 
-(./app/assets/images/feelng.png)
-
 ## Technologies Used
 
 ### Backend
