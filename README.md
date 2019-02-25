@@ -1,7 +1,7 @@
 # Feelng
 
 ![Image of Feelng Mood Page] 
-(https://raw.githubusercontent.com/khanontheweb/images/master/feelng.png)
+(./app/assets/images/feelng.png)
 
 ## Technologies Used
 
