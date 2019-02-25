@@ -1,5 +1,7 @@
 # Feelng
 
+![Image of Feelng Mood Page] (https://github.com/khanontheweb/images/blob/master/feelng.png)
+
 ## Technologies Used
 
 ### Backend
@@ -11,6 +13,11 @@
 
 ## Why it was created
 Sometimes when people have a certain feeling they want to just sink into, Feelng provides the user with a music, background image, event, and poem, all matching the mood. Feelng also provides a space for people experiencing the same emotion to chat with each other in real time.
+
+## How to use it
+Once you visit the site it will notice that it is your first time visiting, you are prompted to login with your Spotify account. Currently you can only use Spotify Premium accounts as the playback only works for Spotify Premium users. After logging in, you will be redirected to the home page. Make sure to allow your location to be detected. Then just choose an emoji and submit!
+
+
 
 ## How it Works
 
